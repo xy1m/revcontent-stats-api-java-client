@@ -2,10 +2,10 @@ package com.xy1m.services;
 
 import com.xy1m.RevContent;
 import com.xy1m.model.DataResults;
-import com.xy1m.model.Interest;
-import com.xy1m.model.Resource;
 import com.xy1m.model.auth.Authentication;
 import com.xy1m.model.auth.Token;
+import com.xy1m.model.resource.Interest;
+import com.xy1m.model.resource.Resource;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Ignore;

@@ -7,7 +7,7 @@ import org.junit.BeforeClass;
 import org.junit.Ignore;
 import org.junit.Test;
 
-public class RevContentAuthenticationServiceImplTest {
+public class RevContentAddRequestAuthenticationServiceImplTest {
 
     private static RevContent revContent;
 

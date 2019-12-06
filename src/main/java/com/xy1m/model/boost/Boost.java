@@ -1,17 +1,16 @@
-package com.xy1m.model;
+package com.xy1m.model.boost;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.xy1m.RevContent;
-import com.xy1m.model.auth.Authentication;
 
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.Objects;
 
+@Deprecated
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Boost {
+class Boost {
     // create
     private String id;
     private String name;
@@ -52,27 +51,6 @@ public class Boost {
     private String maxBid;
     private String cost;
     private String ctr;
-
-    public static DataResults<Boost> getAll(Authentication auth) {
-        return RevContent.getInstance().campaignsService().getAll(auth);
-    }
-
-    public CampaignResult<Boost> createCpc(Authentication auth) {
-        return RevContent.getInstance().campaignsService().createCpc(auth, this);
-    }
-
-    public CampaignResult<Boost> createCpa(Authentication auth) {
-        return RevContent.getInstance().campaignsService().createCpa(auth, this);
-    }
-
-    public Boost update(Authentication auth, String id) {
-        return RevContent.getInstance().campaignsService().update(auth, id, this);
-    }
-
-    public Boost updateStatus(Authentication auth) {
-        return RevContent.getInstance().campaignsService().updateStatus(auth, this);
-    }
-
 
     public String getId() {
         return id;

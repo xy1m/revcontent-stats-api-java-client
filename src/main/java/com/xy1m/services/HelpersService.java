@@ -4,8 +4,8 @@ import com.xy1m.exceptions.APIClientException;
 import com.xy1m.exceptions.APIServerException;
 import com.xy1m.exceptions.APIUnauthorizedException;
 import com.xy1m.model.DataResults;
-import com.xy1m.model.Interest;
-import com.xy1m.model.Resource;
+import com.xy1m.model.resource.Interest;
+import com.xy1m.model.resource.Resource;
 import com.xy1m.model.auth.Authentication;
 
 

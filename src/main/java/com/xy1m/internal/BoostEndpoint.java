@@ -1,9 +1,15 @@
 package com.xy1m.internal;
 
 import com.xy1m.exceptions.APIException;
-import com.xy1m.model.Boost;
-import com.xy1m.model.CampaignResult;
 import com.xy1m.model.DataResults;
+import com.xy1m.model.boost.BoostAddRequest;
+import com.xy1m.model.boost.BoostAddResponse;
+import com.xy1m.model.boost.BoostGetAllResponse;
+import com.xy1m.model.boost.BoostUpdateRequest;
+import com.xy1m.model.boost.BoostUpdateResponse;
+import com.xy1m.model.boost.BoostUpdateStatusRequest;
+import com.xy1m.model.boost.BoostUpdateStatusResponse;
+import com.xy1m.model.boost.CampaignResult;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
@@ -13,27 +19,27 @@ import retrofit2.http.Path;
 
 public interface BoostEndpoint {
     @GET(Paths.BACKSTAGE_API_PATH_PREFIX + "/boosts")
-    @Headers("Content-Type: application/json")
-    DataResults<Boost> getAllBoosts(@Header("Authorization") String authToken) throws APIException;
+    @Headers("ContentAddRequest-Type: application/json")
+    DataResults<BoostGetAllResponse> getAllBoosts(@Header("Authorization") String authToken) throws APIException;
 
     @POST(Paths.BACKSTAGE_API_PATH_PREFIX + "/boosts/add")
-    @Headers("Content-Type: application/json")
-    CampaignResult<Boost> createCpc(@Header("Authorization") String authToken,
-                                    @Body Boost boost) throws APIException;
+    @Headers("ContentAddRequest-Type: application/json")
+    CampaignResult<BoostAddResponse> createCpc(@Header("Authorization") String authToken,
+                                               @Body BoostAddRequest boost) throws APIException;
 
     @POST(Paths.BACKSTAGE_API_PATH_PREFIX + "/boosts/add")
-    @Headers("Content-Type: application/json")
-    CampaignResult<Boost> createCpa(@Header("Authorization") String authToken,
-                                    @Body Boost boost) throws APIException;
+    @Headers("ContentAddRequest-Type: application/json")
+    CampaignResult<BoostAddResponse> createCpa(@Header("Authorization") String authToken,
+                                               @Body BoostAddRequest boost) throws APIException;
 
     @POST(Paths.BACKSTAGE_API_PATH_PREFIX + "/boosts/{boost_id}/settings")
-    @Headers("Content-Type: application/json")
-    Boost update(@Header("Authorization") String authToken,
-                 @Path("boost_id") String boostId,
-                 @Body Boost boost) throws APIException;
+    @Headers("ContentAddRequest-Type: application/json")
+    BoostUpdateResponse update(@Header("Authorization") String authToken,
+                               @Path("boost_id") Long boostId,
+                               @Body BoostUpdateRequest boost) throws APIException;
 
     @POST(Paths.BACKSTAGE_API_PATH_PREFIX + "/boosts")
-    @Headers("Content-Type: application/json")
-    Boost updateStatus(@Header("Authorization") String authToken,
-                       @Body Boost boost) throws APIException;
+    @Headers("ContentAddRequest-Type: application/json")
+    BoostUpdateStatusResponse updateStatus(@Header("Authorization") String authToken,
+                                           @Body BoostUpdateStatusRequest boost) throws APIException;
 }

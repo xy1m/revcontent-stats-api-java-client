@@ -1,4 +1,4 @@
-package com.xy1m.model;
+package com.xy1m.model.boost;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;

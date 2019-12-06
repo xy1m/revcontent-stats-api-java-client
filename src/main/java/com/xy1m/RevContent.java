@@ -3,6 +3,7 @@ package com.xy1m;
 import com.xy1m.internal.AuthenticationEndpoint;
 import com.xy1m.internal.BoostEndpoint;
 import com.xy1m.internal.CommunicationFactory;
+import com.xy1m.internal.ContentEndpoint;
 import com.xy1m.internal.HelperEndpoint;
 import com.xy1m.internal.config.CommunicationConfig;
 import com.xy1m.internal.config.SerializationConfig;
@@ -10,6 +11,8 @@ import com.xy1m.internal.factories.RevContentEndpointsFactory;
 import com.xy1m.internal.factories.RevContentEndpointsRetrofitFactory;
 import com.xy1m.services.BoostsService;
 import com.xy1m.services.BoostsServiceImpl;
+import com.xy1m.services.ContentsService;
+import com.xy1m.services.ContentsServiceImpl;
 import com.xy1m.services.HelpersService;
 import com.xy1m.services.HelpersServiceImpl;
 import com.xy1m.services.RevContentAuthenticationService;
@@ -20,14 +23,18 @@ public class RevContent {
     private final RevContentAuthenticationService revContentAuthenticationService;
     private final BoostsService boostsService;
     private final HelpersService helpersService;
+    private final ContentsService contentsService;
 
     private RevContent(RevContentAuthenticationService revContentAuthenticationService,
                        BoostsService boostsService,
-                       HelpersService helpersService) {
+                       HelpersService helpersService,
+                       ContentsService contentsService
+    ) {
 
         this.revContentAuthenticationService = revContentAuthenticationService;
         this.boostsService = boostsService;
         this.helpersService = helpersService;
+        this.contentsService = contentsService;
     }
 
     public static RevContent getInstance() {
@@ -48,6 +55,10 @@ public class RevContent {
 
     public HelpersService helpersService() {
         return helpersService;
+    }
+
+    public ContentsService contentsService() {
+        return contentsService;
     }
     //TODO support async services
 
@@ -145,7 +156,9 @@ public class RevContent {
                     new BoostsServiceImpl(performClientValidations,
                             revContentEndpointsFactory.createEndpoint(BoostEndpoint.class)),
                     new HelpersServiceImpl(performClientValidations,
-                            revContentEndpointsFactory.createEndpoint(HelperEndpoint.class))
+                            revContentEndpointsFactory.createEndpoint(HelperEndpoint.class)),
+                    new ContentsServiceImpl(performClientValidations,
+                            revContentEndpointsFactory.createEndpoint(ContentEndpoint.class)) {}
 
             );
         }
