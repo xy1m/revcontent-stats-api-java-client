@@ -8,7 +8,7 @@
   <artifactId>revcontent-stats-java-sdk</artifactId>
   <version>1.0.0</version>
 
-  <name>${project.groupId}:${project.artifactId}</name>
+  <name>revcontent-stats-java-sdk</name>
   <description>RevContent Stats API Java Client</description>
   <url>https://github.com/xy1m/revcontent-stats-java-sdk</url>
 
@@ -31,8 +31,8 @@
 
   <distributionManagement>
     <repository>
-      <id>revcontent-stats-java-sdk</id>
-      <name>revcontent-stats-java-sdk</name>
+      <id>github</id>
+      <name>GitHub xy1m Apache Maven Packages</name>
       <url>https://maven.pkg.github.com/xy1m/revcontent-stats-java-sdk</url>
     </repository>
   </distributionManagement>
