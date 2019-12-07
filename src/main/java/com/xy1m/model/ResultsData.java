@@ -13,16 +13,16 @@ import java.util.Objects;
         "data"
 })
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class DataResults<T> {
+public class ResultsData<T> {
 
     private boolean success;
     private Collection<T> data;
 
-    public DataResults() {
+    public ResultsData() {
         //for serialization
     }
 
-    public DataResults(boolean success, Collection<T> data) {
+    public ResultsData(boolean success, Collection<T> data) {
         this.success = success;
         this.data = data;
     }
@@ -45,7 +45,7 @@ public class DataResults<T> {
 
     @Override
     public String toString() {
-        return "DataResults{" +
+        return "ResultsData{" +
                 "success=" + success +
                 ", data=" + data +
                 '}';
@@ -54,10 +54,10 @@ public class DataResults<T> {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof DataResults)) return false;
-        DataResults<?> dataResults = (DataResults<?>) o;
-        return isSuccess() == dataResults.isSuccess() &&
-                Objects.equals(getData(), dataResults.getData());
+        if (!(o instanceof ResultsData)) return false;
+        ResultsData<?> resultsData = (ResultsData<?>) o;
+        return isSuccess() == resultsData.isSuccess() &&
+                Objects.equals(getData(), resultsData.getData());
     }
 
     @Override

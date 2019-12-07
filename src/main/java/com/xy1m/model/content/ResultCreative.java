@@ -1,4 +1,4 @@
-package com.xy1m.model.boost;
+package com.xy1m.model.content;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -9,21 +9,21 @@ import java.util.Objects;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
         "success",
-        "campaign"
+        "creative"
 })
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class CampaignResult<T> {
+public class ResultCreative<T> {
 
     private boolean success;
-    private T campaign;
+    private T creative;
 
-    public CampaignResult() {
+    public ResultCreative() {
         //for serialization
     }
 
-    public CampaignResult(boolean success, T campaign) {
+    public ResultCreative(boolean success, T creative) {
         this.success = success;
-        this.campaign = campaign;
+        this.creative = creative;
     }
 
     public boolean isSuccess() {
@@ -34,33 +34,33 @@ public class CampaignResult<T> {
         this.success = success;
     }
 
-    public T getCampaign() {
-        return campaign;
+    public T getCreative() {
+        return creative;
     }
 
-    public void setCampaign(T campaign) {
-        this.campaign = campaign;
+    public void setCreative(T creative) {
+        this.creative = creative;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof CampaignResult)) return false;
-        CampaignResult<?> that = (CampaignResult<?>) o;
+        if (!(o instanceof ResultCreative)) return false;
+        ResultCreative<?> that = (ResultCreative<?>) o;
         return isSuccess() == that.isSuccess() &&
-                Objects.equals(getCampaign(), that.getCampaign());
+                Objects.equals(getCreative(), that.getCreative());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(isSuccess(), getCampaign());
+        return Objects.hash(isSuccess(), getCreative());
     }
 
     @Override
     public String toString() {
-        return "CampaignResult{" +
+        return "ResultCampaign{" +
                 "success=" + success +
-                ", campaign=" + campaign +
+                ", creative=" + creative +
                 '}';
     }
 }

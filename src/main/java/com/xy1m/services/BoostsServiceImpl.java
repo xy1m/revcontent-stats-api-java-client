@@ -4,7 +4,7 @@ import com.xy1m.exceptions.APIClientException;
 import com.xy1m.exceptions.APIServerException;
 import com.xy1m.exceptions.APIUnauthorizedException;
 import com.xy1m.internal.BoostEndpoint;
-import com.xy1m.model.DataResults;
+import com.xy1m.model.ResultsData;
 import com.xy1m.model.auth.Authentication;
 import com.xy1m.model.boost.BoostAddRequest;
 import com.xy1m.model.boost.BoostAddResponse;
@@ -13,7 +13,7 @@ import com.xy1m.model.boost.BoostUpdateRequest;
 import com.xy1m.model.boost.BoostUpdateResponse;
 import com.xy1m.model.boost.BoostUpdateStatusRequest;
 import com.xy1m.model.boost.BoostUpdateStatusResponse;
-import com.xy1m.model.boost.CampaignResult;
+import com.xy1m.model.boost.ResultCampaign;
 
 public class BoostsServiceImpl implements BoostsService {
 
@@ -26,20 +26,20 @@ public class BoostsServiceImpl implements BoostsService {
     }
 
     @Override
-    public DataResults<BoostGetAllResponse> getAll(Authentication auth) throws APIUnauthorizedException,
+    public ResultsData<BoostGetAllResponse> getAll(Authentication auth) throws APIUnauthorizedException,
             APIServerException, APIClientException {
         String accessToken = auth.getToken().getAccessTokenForHeader();
         return endpoint.getAllBoosts(accessToken);
     }
 
     @Override
-    public CampaignResult<BoostAddResponse> createCpc(Authentication auth, BoostAddRequest payload) throws APIUnauthorizedException, APIServerException, APIClientException {
+    public ResultCampaign<BoostAddResponse> createCpc(Authentication auth, BoostAddRequest payload) throws APIUnauthorizedException, APIServerException, APIClientException {
         String accessToken = auth.getToken().getAccessTokenForHeader();
         return endpoint.createCpc(accessToken, payload);
     }
 
     @Override
-    public CampaignResult<BoostAddResponse> createCpa(Authentication auth, BoostAddRequest payload) throws APIUnauthorizedException, APIServerException, APIClientException {
+    public ResultCampaign<BoostAddResponse> createCpa(Authentication auth, BoostAddRequest payload) throws APIUnauthorizedException, APIServerException, APIClientException {
         String accessToken = auth.getToken().getAccessTokenForHeader();
         return endpoint.createCpa(accessToken, payload);
     }

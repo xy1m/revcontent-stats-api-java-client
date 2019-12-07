@@ -7,7 +7,7 @@ import java.util.Objects;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ContentResponse {
+public class ContentAddOrUpdateResponse {
     private String id;
     private String status;
 
@@ -30,8 +30,8 @@ public class ContentResponse {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof ContentResponse)) return false;
-        ContentResponse that = (ContentResponse) o;
+        if (!(o instanceof ContentAddOrUpdateResponse)) return false;
+        ContentAddOrUpdateResponse that = (ContentAddOrUpdateResponse) o;
         return Objects.equals(getId(), that.getId()) &&
                 Objects.equals(getStatus(), that.getStatus());
     }
@@ -43,7 +43,7 @@ public class ContentResponse {
 
     @Override
     public String toString() {
-        return "ContentResponse{" +
+        return "ContentAddOrUpdateResponse{" +
                 "id='" + id + '\'' +
                 ", status='" + status + '\'' +
                 '}';
