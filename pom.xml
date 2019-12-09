@@ -6,7 +6,7 @@
 
     <groupId>com.xy1m</groupId>
     <artifactId>revcontent-stats-api-java-client</artifactId>
-    <version>1.0.0-alpha</version>
+    <version>1.0.0-beta</version>
 
     <name>revcontent-stats-api-java-client</name>
     <description>RevContent Stats API Java Client</description>
