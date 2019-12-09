@@ -47,7 +47,7 @@ public class ContentsServiceImplTest {
                 .image("https://www.referyourchasecard.com/R101-029/1010184/images/photo4.jpg")
                 .headline("Chase Sapphired Prefered Credit Card")
                 .brandName("Chase")
-                .contentType(EnumContentType.article)
+                .contentType(EnumContentType.ARTICLE)
                 .build();
         ResultCreative<ContentAddOrUpdateResponse> result = revContent.contentsService().add(auth, BOOST_ID, payload);
         System.out.println(objectMapper.writeValueAsString(result));
@@ -59,7 +59,7 @@ public class ContentsServiceImplTest {
     public void update() throws JsonProcessingException {
         ContentUpdateRequest payload = ContentUpdateRequest.APIRequestUpdateContentBuilder.builder()
                 .id(4155513L)
-                .enabled(EnumOnOff.on)
+                .enabled(EnumOnOff.ON)
                 .build();
         ResultsData<ContentAddOrUpdateResponse> result = revContent.contentsService().update(auth, BOOST_ID, payload);
         System.out.println(objectMapper.writeValueAsString(result));

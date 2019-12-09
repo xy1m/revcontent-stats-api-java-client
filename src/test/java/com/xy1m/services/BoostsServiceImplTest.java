@@ -57,7 +57,7 @@ public class BoostsServiceImplTest {
         ResultCampaign<BoostAddResponse> result = revContent.campaignsService().createCpc(auth,
                 BoostAddRequest.BoostAddRequestBuilder.builder()
                         .name("cpc campaign from sdk-" + UUID.randomUUID())
-                        .optimize(EnumOptimize.cpc)
+                        .optimize(EnumOptimize.CPC)
                         .build()
         );
         System.out.println(objectMapper.writeValueAsString(result));
@@ -70,7 +70,7 @@ public class BoostsServiceImplTest {
         ResultCampaign<BoostAddResponse> result = revContent.campaignsService().createCpa(auth,
                 BoostAddRequest.BoostAddRequestBuilder.builder()
                         .name("cpa campaign from sdk-" + UUID.randomUUID())
-                        .optimize(EnumOptimize.cpa)
+                        .optimize(EnumOptimize.CPA)
                         .build()
         );
         System.out.println(objectMapper.writeValueAsString(result));
@@ -95,7 +95,7 @@ public class BoostsServiceImplTest {
         BoostUpdateStatusResponse result = revContent.campaignsService().updateStatus(auth,
                 BoostUpdateStatusRequest.BoostUpdateStatusRequestBuilder.builder()
                         .id(BOOST_ID)
-                        .enabled(EnumOnOff.on)
+                        .enabled(EnumOnOff.ON)
                         .build());
         System.out.println(objectMapper.writeValueAsString(result));
         Assert.assertNotNull(result.getId());
