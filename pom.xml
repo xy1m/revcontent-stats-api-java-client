@@ -5,12 +5,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.xy1m</groupId>
-    <artifactId>revcontent-stats-java-sdk</artifactId>
+    <artifactId>revcontent-stats-api-java-client</artifactId>
     <version>1.0.0-alpha</version>
 
-    <name>revcontent-stats-java-sdk</name>
+    <name>revcontent-stats-api-java-client</name>
     <description>RevContent Stats API Java Client</description>
-    <url>https://github.com/xy1m/revcontent-stats-java-sdk</url>
+    <url>https://github.com/xy1m/revcontent-stats-api-java-client</url>
 
     <licenses>
         <license>
@@ -33,7 +33,7 @@
         <repository>
             <id>github</id>
             <name>GitHub xy1m Apache Maven Packages</name>
-            <url>https://maven.pkg.github.com/xy1m/revcontent-stats-java-sdk</url>
+            <url>https://maven.pkg.github.com/xy1m/revcontent-stats-api-java-client</url>
         </repository>
         <!--<repository>
           <id>internal</id>
