@@ -11,6 +11,7 @@ import com.xy1m.model.auth.Token;
 import com.xy1m.model.boost.BoostPerformance;
 import org.junit.Assert;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.HashMap;
@@ -36,6 +37,7 @@ public class BoostPerformanceServiceImplTest {
     }
 
     @Test
+    @Ignore
     public void getBoostPerformance() throws JsonProcessingException {
         Map<String, String> filter = new HashMap<>();
         filter.put("boost_id", "" + BOOST_ID);
