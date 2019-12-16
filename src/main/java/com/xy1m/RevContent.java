@@ -2,6 +2,7 @@ package com.xy1m;
 
 import com.xy1m.internal.AuthenticationEndpoint;
 import com.xy1m.internal.BoostEndpoint;
+import com.xy1m.internal.BoostPerformanceEndpoint;
 import com.xy1m.internal.CommunicationFactory;
 import com.xy1m.internal.ContentEndpoint;
 import com.xy1m.internal.HelperEndpoint;
@@ -9,6 +10,8 @@ import com.xy1m.internal.config.CommunicationConfig;
 import com.xy1m.internal.config.SerializationConfig;
 import com.xy1m.internal.factories.RevContentEndpointsFactory;
 import com.xy1m.internal.factories.RevContentEndpointsRetrofitFactory;
+import com.xy1m.services.BoostPerformanceService;
+import com.xy1m.services.BoostPerformanceServiceImpl;
 import com.xy1m.services.BoostsService;
 import com.xy1m.services.BoostsServiceImpl;
 import com.xy1m.services.ContentsService;
@@ -22,17 +25,20 @@ public class RevContent {
     private static RevContent instance = RevContent.builder().build();
     private final RevContentAuthenticationService revContentAuthenticationService;
     private final BoostsService boostsService;
+    private final BoostPerformanceService boostPerformanceService;
     private final HelpersService helpersService;
     private final ContentsService contentsService;
 
     private RevContent(RevContentAuthenticationService revContentAuthenticationService,
                        BoostsService boostsService,
+                       BoostPerformanceService boostPerformanceService,
                        HelpersService helpersService,
                        ContentsService contentsService
     ) {
 
         this.revContentAuthenticationService = revContentAuthenticationService;
         this.boostsService = boostsService;
+        this.boostPerformanceService = boostPerformanceService;
         this.helpersService = helpersService;
         this.contentsService = contentsService;
     }
@@ -47,6 +53,14 @@ public class RevContent {
 
     public BoostsService campaignsService() {
         return boostsService;
+    }
+
+    public BoostsService boostsService() {
+        return boostsService;
+    }
+
+    public BoostPerformanceService boostPerformanceService() {
+        return boostPerformanceService;
     }
 
     public RevContentAuthenticationService authenticationService() {
@@ -67,22 +81,22 @@ public class RevContent {
         private static final String DEFAULT_AUTH_BACKSTAGE_HOST = "https://api.revcontent.io/";
         private static final String DEFAULT_USER_AGENT = "RevContent Stats API Java Client";
         private static final String VERSION = "v1.0";
-        private static final Integer DEFAULT_MAX_IDLE_CONNECTIONS = 5;
-        private static final Long DEFAULT_KEEP_ALIVE_DURATION_MILLIS = 300_000L;
+        private static final int DEFAULT_MAX_IDLE_CONNECTIONS = 5;
+        private static final long DEFAULT_KEEP_ALIVE_DURATION_MILLIS = 300_000L;
         private static final SerializationConfig DEFAULT_SERIALIZATION_CONFIG = new SerializationConfig();
 
-        private String baseUrl;
-        private String authBaseUrl;
-        private String userAgent;
-        private Long writeTimeoutMillis;
-        private Long connectionTimeoutMillis;
-        private Long readTimeoutMillis;
-        private Integer maxIdleConnections;
-        private Long keepAliveDurationMillis;
-        private Boolean performClientValidations;
-        private Boolean debug;
-        private Boolean organizeDynamicColumns;
-        private SerializationConfig serializationConfig;
+        private String baseUrl = DEFAULT_AUTH_BACKSTAGE_HOST;
+        private String authBaseUrl = DEFAULT_AUTH_BACKSTAGE_HOST;
+        private String userAgent = DEFAULT_USER_AGENT;
+        private long writeTimeoutMillis = 0L;
+        private long connectionTimeoutMillis = 0L;
+        private long readTimeoutMillis = 0L;
+        private int maxIdleConnections = DEFAULT_MAX_IDLE_CONNECTIONS;
+        private long keepAliveDurationMillis = DEFAULT_KEEP_ALIVE_DURATION_MILLIS;
+        private boolean performClientValidations = true;
+        private boolean debug = false;
+        private boolean organizeDynamicColumns = true;
+        private SerializationConfig serializationConfig = DEFAULT_SERIALIZATION_CONFIG;
 
         public RevContentBuilder setBaseUrl(String baseUrl) {
             this.baseUrl = baseUrl;
@@ -145,72 +159,24 @@ public class RevContent {
         }
 
         public RevContent build() {
-            organizeState();
             String finalUserAgent = String.format("RevContent/%s (%s)", VERSION, userAgent);
-            CommunicationConfig config = new CommunicationConfig(baseUrl, authBaseUrl, connectionTimeoutMillis, readTimeoutMillis, writeTimeoutMillis, maxIdleConnections,
-                    keepAliveDurationMillis, finalUserAgent, debug);
+            CommunicationConfig config = new CommunicationConfig(baseUrl, authBaseUrl, connectionTimeoutMillis,
+                    readTimeoutMillis, writeTimeoutMillis, maxIdleConnections, keepAliveDurationMillis,
+                    finalUserAgent, debug);
             CommunicationFactory communicator = new CommunicationFactory(config, serializationConfig);
-            RevContentEndpointsFactory revContentEndpointsFactory = new RevContentEndpointsRetrofitFactory(communicator);
+            RevContentEndpointsFactory endpointsFactory = new RevContentEndpointsRetrofitFactory(communicator);
             return new RevContent(
-                    new RevContentAuthenticationServiceImpl(revContentEndpointsFactory.createAuthEndpoint(AuthenticationEndpoint.class)),
+                    new RevContentAuthenticationServiceImpl(
+                            endpointsFactory.createAuthEndpoint(AuthenticationEndpoint.class)),
                     new BoostsServiceImpl(performClientValidations,
-                            revContentEndpointsFactory.createEndpoint(BoostEndpoint.class)),
+                            endpointsFactory.createEndpoint(BoostEndpoint.class)),
+                    new BoostPerformanceServiceImpl(performClientValidations,
+                            endpointsFactory.createEndpoint(BoostPerformanceEndpoint.class)),
                     new HelpersServiceImpl(performClientValidations,
-                            revContentEndpointsFactory.createEndpoint(HelperEndpoint.class)),
+                            endpointsFactory.createEndpoint(HelperEndpoint.class)),
                     new ContentsServiceImpl(performClientValidations,
-                            revContentEndpointsFactory.createEndpoint(ContentEndpoint.class)) {}
-
+                            endpointsFactory.createEndpoint(ContentEndpoint.class)) {}
             );
-        }
-
-        private void organizeState() {
-            if (baseUrl == null) {
-                baseUrl = DEFAULT_BACKSTAGE_HOST;
-            }
-
-            if (authBaseUrl == null) {
-                authBaseUrl = DEFAULT_AUTH_BACKSTAGE_HOST;
-            }
-
-            if (connectionTimeoutMillis == null) {
-                connectionTimeoutMillis = 0L;
-            }
-
-            if (readTimeoutMillis == null) {
-                readTimeoutMillis = 0L;
-            }
-
-            if (writeTimeoutMillis == null) {
-                writeTimeoutMillis = 0L;
-            }
-
-            if (maxIdleConnections == null) {
-                maxIdleConnections = DEFAULT_MAX_IDLE_CONNECTIONS;
-            }
-
-            if (keepAliveDurationMillis == null) {
-                keepAliveDurationMillis = DEFAULT_KEEP_ALIVE_DURATION_MILLIS;
-            }
-
-            if (userAgent == null) {
-                userAgent = DEFAULT_USER_AGENT;
-            }
-
-            if (performClientValidations == null) {
-                performClientValidations = true;
-            }
-
-            if (debug == null) {
-                debug = false;
-            }
-
-            if (organizeDynamicColumns == null) {
-                organizeDynamicColumns = true;
-            }
-
-            if (serializationConfig == null) {
-                serializationConfig = DEFAULT_SERIALIZATION_CONFIG;
-            }
         }
     }
 }
