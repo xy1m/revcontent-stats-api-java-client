@@ -6,6 +6,7 @@ import com.xy1m.internal.BoostPerformanceEndpoint;
 import com.xy1m.internal.CommunicationFactory;
 import com.xy1m.internal.ContentEndpoint;
 import com.xy1m.internal.HelperEndpoint;
+import com.xy1m.internal.WidgetEndpoint;
 import com.xy1m.internal.config.CommunicationConfig;
 import com.xy1m.internal.config.SerializationConfig;
 import com.xy1m.internal.factories.RevContentEndpointsFactory;
@@ -20,6 +21,8 @@ import com.xy1m.services.HelpersService;
 import com.xy1m.services.HelpersServiceImpl;
 import com.xy1m.services.RevContentAuthenticationService;
 import com.xy1m.services.RevContentAuthenticationServiceImpl;
+import com.xy1m.services.WidgetService;
+import com.xy1m.services.WidgetServiceImpl;
 
 public class RevContent {
     private static RevContent instance = RevContent.builder().build();
@@ -28,12 +31,14 @@ public class RevContent {
     private final BoostPerformanceService boostPerformanceService;
     private final HelpersService helpersService;
     private final ContentsService contentsService;
+    private final WidgetService widgetService;
 
     private RevContent(RevContentAuthenticationService revContentAuthenticationService,
                        BoostsService boostsService,
                        BoostPerformanceService boostPerformanceService,
                        HelpersService helpersService,
-                       ContentsService contentsService
+                       ContentsService contentsService,
+                       WidgetService widgetService
     ) {
 
         this.revContentAuthenticationService = revContentAuthenticationService;
@@ -41,6 +46,7 @@ public class RevContent {
         this.boostPerformanceService = boostPerformanceService;
         this.helpersService = helpersService;
         this.contentsService = contentsService;
+        this.widgetService = widgetService;
     }
 
     public static RevContent getInstance() {
@@ -73,6 +79,10 @@ public class RevContent {
 
     public ContentsService contentsService() {
         return contentsService;
+    }
+
+    public WidgetService widgetService() {
+        return widgetService;
     }
     //TODO support async services
 
@@ -175,7 +185,9 @@ public class RevContent {
                     new HelpersServiceImpl(performClientValidations,
                             endpointsFactory.createEndpoint(HelperEndpoint.class)),
                     new ContentsServiceImpl(performClientValidations,
-                            endpointsFactory.createEndpoint(ContentEndpoint.class)) {}
+                            endpointsFactory.createEndpoint(ContentEndpoint.class)),
+                    new WidgetServiceImpl(performClientValidations,
+                            endpointsFactory.createEndpoint(WidgetEndpoint.class)) {}
             );
         }
     }
