@@ -6,7 +6,7 @@
 
     <groupId>com.xy1m</groupId>
     <artifactId>revcontent-stats-api-java-client</artifactId>
-    <version>1.0.0-beta</version>
+    <version>1.0.0-SNAPSHOT</version>
 
     <name>revcontent-stats-api-java-client</name>
     <description>RevContent Stats API Java Client</description>
@@ -30,15 +30,15 @@
     </developers>
 
     <distributionManagement>
-        <repository>
+        <!--<repository>
             <id>github</id>
             <name>GitHub xy1m Apache Maven Packages</name>
             <url>https://maven.pkg.github.com/xy1m/revcontent-stats-api-java-client</url>
-        </repository>
-        <!--<repository>
+        </repository>-->
+        <repository>
           <id>internal</id>
           <url>http://archiva.inpwrd.net/archiva/repository/internal/</url>
-        </repository>-->
+        </repository>
     </distributionManagement>
 
     <properties>
