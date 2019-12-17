@@ -9,7 +9,6 @@ import com.xy1m.model.boost.BoostPerformance;
 
 import java.util.Map;
 
-
 public interface BoostPerformanceService {
     ResultsData<BoostPerformance> getBoostPerformance(Authentication auth, Map<String, String> filter)
             throws APIUnauthorizedException, APIServerException, APIClientException;

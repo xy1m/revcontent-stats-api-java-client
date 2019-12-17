@@ -6,6 +6,7 @@ import com.xy1m.internal.BoostPerformanceEndpoint;
 import com.xy1m.internal.CommunicationFactory;
 import com.xy1m.internal.ContentEndpoint;
 import com.xy1m.internal.HelperEndpoint;
+import com.xy1m.internal.TargetEndpoint;
 import com.xy1m.internal.WidgetEndpoint;
 import com.xy1m.internal.config.CommunicationConfig;
 import com.xy1m.internal.config.SerializationConfig;
@@ -21,6 +22,8 @@ import com.xy1m.services.HelpersService;
 import com.xy1m.services.HelpersServiceImpl;
 import com.xy1m.services.RevContentAuthenticationService;
 import com.xy1m.services.RevContentAuthenticationServiceImpl;
+import com.xy1m.services.TargetService;
+import com.xy1m.services.TargetServiceImpl;
 import com.xy1m.services.WidgetService;
 import com.xy1m.services.WidgetServiceImpl;
 
@@ -32,21 +35,22 @@ public class RevContent {
     private final HelpersService helpersService;
     private final ContentsService contentsService;
     private final WidgetService widgetService;
+    private final TargetService targetService;
 
     private RevContent(RevContentAuthenticationService revContentAuthenticationService,
                        BoostsService boostsService,
                        BoostPerformanceService boostPerformanceService,
                        HelpersService helpersService,
                        ContentsService contentsService,
-                       WidgetService widgetService
-    ) {
-
+                       WidgetService widgetService,
+                       TargetService targetService) {
         this.revContentAuthenticationService = revContentAuthenticationService;
         this.boostsService = boostsService;
         this.boostPerformanceService = boostPerformanceService;
         this.helpersService = helpersService;
         this.contentsService = contentsService;
         this.widgetService = widgetService;
+        this.targetService = targetService;
     }
 
     public static RevContent getInstance() {
@@ -83,6 +87,10 @@ public class RevContent {
 
     public WidgetService widgetService() {
         return widgetService;
+    }
+
+    public TargetService targetService() {
+        return targetService;
     }
     //TODO support async services
 
@@ -187,7 +195,9 @@ public class RevContent {
                     new ContentsServiceImpl(performClientValidations,
                             endpointsFactory.createEndpoint(ContentEndpoint.class)),
                     new WidgetServiceImpl(performClientValidations,
-                            endpointsFactory.createEndpoint(WidgetEndpoint.class)) {}
+                            endpointsFactory.createEndpoint(WidgetEndpoint.class)),
+                    new TargetServiceImpl(performClientValidations,
+                            endpointsFactory.createEndpoint(TargetEndpoint.class)) {}
             );
         }
     }

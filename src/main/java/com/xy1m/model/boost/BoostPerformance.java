@@ -18,7 +18,7 @@ public class BoostPerformance {
     private String avgCpc;
     private String cost;
     @JsonProperty("return")
-    private String returnValue;
+    private String valueReturn;
     private String profit;
 
     public String getDate() {
@@ -85,12 +85,12 @@ public class BoostPerformance {
         this.cost = cost;
     }
 
-    public String getReturnValue() {
-        return returnValue;
+    public String getValueReturn() {
+        return valueReturn;
     }
 
-    public void setReturnValue(String returnValue) {
-        this.returnValue = returnValue;
+    public void setValueReturn(String valueReturn) {
+        this.valueReturn = valueReturn;
     }
 
     public String getProfit() {
@@ -114,13 +114,13 @@ public class BoostPerformance {
                 Objects.equals(getCtr(), that.getCtr()) &&
                 Objects.equals(getAvgCpc(), that.getAvgCpc()) &&
                 Objects.equals(getCost(), that.getCost()) &&
-                Objects.equals(getReturnValue(), that.getReturnValue()) &&
+                Objects.equals(getValueReturn(), that.getValueReturn()) &&
                 Objects.equals(getProfit(), that.getProfit());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getDate(), getImpressions(), getViewableImpressions(), getClicks(), getConversions(), getCtr(), getAvgCpc(), getCost(), getReturnValue(), getProfit());
+        return Objects.hash(getDate(), getImpressions(), getViewableImpressions(), getClicks(), getConversions(), getCtr(), getAvgCpc(), getCost(), getValueReturn(), getProfit());
     }
 
     @Override
@@ -134,7 +134,7 @@ public class BoostPerformance {
         sb.append(", ctr='").append(ctr).append('\'');
         sb.append(", avgCpc='").append(avgCpc).append('\'');
         sb.append(", cost='").append(cost).append('\'');
-        sb.append(", returnValue='").append(returnValue).append('\'');
+        sb.append(", valueReturn='").append(valueReturn).append('\'');
         sb.append(", profit='").append(profit).append('\'');
         sb.append('}');
         return sb.toString();

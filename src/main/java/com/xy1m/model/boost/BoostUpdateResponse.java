@@ -3,7 +3,7 @@ package com.xy1m.model.boost;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.xy1m.model.EnumActiveInactive;
-import com.xy1m.model.EnumOnOff;
+import com.xy1m.model.EnumEnabled;
 import com.xy1m.model.EnumOptimize;
 import com.xy1m.model.EnumStatus;
 
@@ -24,7 +24,7 @@ public class BoostUpdateResponse {
     private Double minBid;
     private Double maxBid;
     private String budget;
-    private EnumOnOff pacing;
+    private EnumEnabled pacing;
     private Double cost;
     private Double ctr;
     private String utmCodes;
@@ -123,11 +123,11 @@ public class BoostUpdateResponse {
         this.budget = budget;
     }
 
-    public EnumOnOff getPacing() {
+    public EnumEnabled getPacing() {
         return pacing;
     }
 
-    public void setPacing(EnumOnOff pacing) {
+    public void setPacing(EnumEnabled pacing) {
         this.pacing = pacing;
     }
 

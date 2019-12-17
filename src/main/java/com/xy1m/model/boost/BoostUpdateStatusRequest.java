@@ -2,7 +2,7 @@ package com.xy1m.model.boost;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.xy1m.model.EnumOnOff;
+import com.xy1m.model.EnumEnabled;
 
 import java.util.Objects;
 
@@ -10,7 +10,7 @@ import java.util.Objects;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class BoostUpdateStatusRequest {
     private Long id;
-    private EnumOnOff enabled;
+    private EnumEnabled enabled;
 
     public Long getId() {
         return id;
@@ -20,11 +20,11 @@ public class BoostUpdateStatusRequest {
         this.id = id;
     }
 
-    public EnumOnOff getEnabled() {
+    public EnumEnabled getEnabled() {
         return enabled;
     }
 
-    public void setEnabled(EnumOnOff enabled) {
+    public void setEnabled(EnumEnabled enabled) {
         this.enabled = enabled;
     }
 
@@ -53,7 +53,7 @@ public class BoostUpdateStatusRequest {
 
     public static final class BoostUpdateStatusRequestBuilder {
         private Long id;
-        private EnumOnOff enabled;
+        private EnumEnabled enabled;
 
         private BoostUpdateStatusRequestBuilder() {
         }
@@ -67,7 +67,7 @@ public class BoostUpdateStatusRequest {
             return this;
         }
 
-        public BoostUpdateStatusRequestBuilder enabled(EnumOnOff enabled) {
+        public BoostUpdateStatusRequestBuilder enabled(EnumEnabled enabled) {
             this.enabled = enabled;
             return this;
         }

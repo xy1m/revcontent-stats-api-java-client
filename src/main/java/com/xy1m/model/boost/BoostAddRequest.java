@@ -2,7 +2,7 @@ package com.xy1m.model.boost;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.xy1m.model.EnumOnOff;
+import com.xy1m.model.EnumEnabled;
 import com.xy1m.model.EnumOptimize;
 import com.xy1m.model.conversion.Conversion;
 
@@ -18,7 +18,7 @@ public class BoostAddRequest {
     // default unlimited
     private String budget;
     // If budget is set to 'unlimited', pacing will default to 'off'. Otherwise, default is 'on'.
-    private EnumOnOff pacing;
+    private EnumEnabled pacing;
     // default cpc
     private EnumOptimize optimize;
     private Conversion conversion;
@@ -67,11 +67,11 @@ public class BoostAddRequest {
         this.budget = budget;
     }
 
-    public EnumOnOff getPacing() {
+    public EnumEnabled getPacing() {
         return pacing;
     }
 
-    public void setPacing(EnumOnOff pacing) {
+    public void setPacing(EnumEnabled pacing) {
         this.pacing = pacing;
     }
 
@@ -249,7 +249,7 @@ public class BoostAddRequest {
         // default unlimited
         private String budget;
         // If budget is set to 'unlimited', pacing will default to 'off'. Otherwise, default is 'on'.
-        private EnumOnOff pacing;
+        private EnumEnabled pacing;
         // default cpc
         private EnumOptimize optimize;
         private Conversion conversion;
@@ -296,7 +296,7 @@ public class BoostAddRequest {
             return this;
         }
 
-        public BoostAddRequestBuilder pacing(EnumOnOff pacing) {
+        public BoostAddRequestBuilder pacing(EnumEnabled pacing) {
             this.pacing = pacing;
             return this;
         }

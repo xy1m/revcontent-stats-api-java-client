@@ -1,7 +1,7 @@
 package com.xy1m.services;
 
-import com.xy1m.exceptions.APIServerException;
 import com.xy1m.exceptions.APIClientException;
+import com.xy1m.exceptions.APIServerException;
 import com.xy1m.exceptions.APIUnauthorizedException;
 import com.xy1m.internal.AuthenticationEndpoint;
 import com.xy1m.model.auth.Authentication;
@@ -19,14 +19,15 @@ public class RevContentAuthenticationServiceImpl implements RevContentAuthentica
     }
 
     @Override
-    public Authentication clientCredentials(String clientId, String clientSecret) throws APIUnauthorizedException, APIServerException, APIClientException {
+    public Authentication clientCredentials(String clientId, String clientSecret)
+            throws APIUnauthorizedException, APIServerException, APIClientException {
         ClientCredentialAuthenticationDetails details = new ClientCredentialAuthenticationDetails(clientId, clientSecret);
         return new Authentication(details, endpoint.getAuthToken(clientId, clientSecret, details.getGrantType().getValue()));
     }
 
     @Override
     public Authentication authenticate(String accessToken) {
-        Objects.requireNonNull(accessToken, "accessToken");
+        Objects.requireNonNull(accessToken, "access token is null");
         Token token = new Token();
         token.setAccessToken(accessToken);
         return new Authentication(null, token);

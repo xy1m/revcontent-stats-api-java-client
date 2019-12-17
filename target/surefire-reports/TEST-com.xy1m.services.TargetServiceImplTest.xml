@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.xy1m.services.TargetServiceImplTest" time="0.003" tests="4" errors="0" skipped="4" failures="0">
+  <properties>
+    <property name="gopherProxySet" value="false"/>
+    <property name="awt.toolkit" value="sun.lwawt.macosx.LWCToolkit"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
+    <property name="java.specification.version" value="1.8"/>
+    <property name="sun.cpu.isalist" value=""/>
+    <property name="sun.jnu.encoding" value="UTF-8"/>
+    <property name="java.class.path" value="/Users/gzhenpeng/IdeaProjects/revcontent-stats-api-java-client/target/test-classes:/Users/gzhenpeng/IdeaProjects/revcontent-stats-api-java-client/target/classes:/Users/gzhenpeng/.m2/repository/org/apache/logging/log4j/log4j-api/2.6.1/log4j-api-2.6.1.jar:/Users/gzhenpeng/.m2/repository/org/apache/logging/log4j/log4j-core/2.6.1/log4j-core-2.6.1.jar:/Users/gzhenpeng/.m2/repository/com/squareup/retrofit2/retrofit/2.5.0/retrofit-2.5.0.jar:/Users/gzhenpeng/.m2/repository/com/squareup/okhttp3/okhttp/3.12.0/okhttp-3.12.0.jar:/Users/gzhenpeng/.m2/repository/com/squareup/okio/okio/1.15.0/okio-1.15.0.jar:/Users/gzhenpeng/.m2/repository/com/squareup/retrofit2/converter-jackson/2.3.0/converter-jackson-2.3.0.jar:/Users/gzhenpeng/.m2/repository/com/squareup/okhttp3/logging-interceptor/3.12.1/logging-interceptor-3.12.1.jar:/Users/gzhenpeng/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.9.10.1/jackson-databind-2.9.10.1.jar:/Users/gzhenpeng/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.9.10/jackson-annotations-2.9.10.jar:/Users/gzhenpeng/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.9.10/jackson-core-2.9.10.jar:/Users/gzhenpeng/.m2/repository/com/google/guava/guava/23.5-jre/guava-23.5-jre.jar:/Users/gzhenpeng/.m2/repository/com/google/code/findbugs/jsr305/1.3.9/jsr305-1.3.9.jar:/Users/gzhenpeng/.m2/repository/org/checkerframework/checker-qual/2.0.0/checker-qual-2.0.0.jar:/Users/gzhenpeng/.m2/repository/com/google/errorprone/error_prone_annotations/2.0.18/error_prone_annotations-2.0.18.jar:/Users/gzhenpeng/.m2/repository/com/google/j2objc/j2objc-annotations/1.1/j2objc-annotations-1.1.jar:/Users/gzhenpeng/.m2/repository/org/codehaus/mojo/animal-sniffer-annotations/1.14/animal-sniffer-annotations-1.14.jar:/Users/gzhenpeng/.m2/repository/junit/junit/4.11/junit-4.11.jar:/Users/gzhenpeng/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.vendor.url" value="http://java.oracle.com/"/>
+    <property name="user.timezone" value=""/>
+    <property name="java.vm.specification.version" value="1.8"/>
+    <property name="os.name" value="Mac OS X"/>
+    <property name="user.country" value="CN"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/jre/lib"/>
+    <property name="sun.java.command" value="/Users/gzhenpeng/IdeaProjects/revcontent-stats-api-java-client/target/surefire/surefirebooter2775915336860798744.jar /Users/gzhenpeng/IdeaProjects/revcontent-stats-api-java-client/target/surefire 2019-12-17T12-20-30_287-jvmRun1 surefire6523489181802043101tmp surefire_07512801190904354535tmp"/>
+    <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+    <property name="surefire.test.class.path" value="/Users/gzhenpeng/IdeaProjects/revcontent-stats-api-java-client/target/test-classes:/Users/gzhenpeng/IdeaProjects/revcontent-stats-api-java-client/target/classes:/Users/gzhenpeng/.m2/repository/org/apache/logging/log4j/log4j-api/2.6.1/log4j-api-2.6.1.jar:/Users/gzhenpeng/.m2/repository/org/apache/logging/log4j/log4j-core/2.6.1/log4j-core-2.6.1.jar:/Users/gzhenpeng/.m2/repository/com/squareup/retrofit2/retrofit/2.5.0/retrofit-2.5.0.jar:/Users/gzhenpeng/.m2/repository/com/squareup/okhttp3/okhttp/3.12.0/okhttp-3.12.0.jar:/Users/gzhenpeng/.m2/repository/com/squareup/okio/okio/1.15.0/okio-1.15.0.jar:/Users/gzhenpeng/.m2/repository/com/squareup/retrofit2/converter-jackson/2.3.0/converter-jackson-2.3.0.jar:/Users/gzhenpeng/.m2/repository/com/squareup/okhttp3/logging-interceptor/3.12.1/logging-interceptor-3.12.1.jar:/Users/gzhenpeng/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.9.10.1/jackson-databind-2.9.10.1.jar:/Users/gzhenpeng/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.9.10/jackson-annotations-2.9.10.jar:/Users/gzhenpeng/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.9.10/jackson-core-2.9.10.jar:/Users/gzhenpeng/.m2/repository/com/google/guava/guava/23.5-jre/guava-23.5-jre.jar:/Users/gzhenpeng/.m2/repository/com/google/code/findbugs/jsr305/1.3.9/jsr305-1.3.9.jar:/Users/gzhenpeng/.m2/repository/org/checkerframework/checker-qual/2.0.0/checker-qual-2.0.0.jar:/Users/gzhenpeng/.m2/repository/com/google/errorprone/error_prone_annotations/2.0.18/error_prone_annotations-2.0.18.jar:/Users/gzhenpeng/.m2/repository/com/google/j2objc/j2objc-annotations/1.1/j2objc-annotations-1.1.jar:/Users/gzhenpeng/.m2/repository/org/codehaus/mojo/animal-sniffer-annotations/1.14/animal-sniffer-annotations-1.14.jar:/Users/gzhenpeng/.m2/repository/junit/junit/4.11/junit-4.11.jar:/Users/gzhenpeng/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="/Users/gzhenpeng"/>
+    <property name="user.language" value="en"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.home" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/jre"/>
+    <property name="basedir" value="/Users/gzhenpeng/IdeaProjects/revcontent-stats-api-java-client"/>
+    <property name="file.separator" value="/"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.CGraphicsEnvironment"/>
+    <property name="surefire.real.class.path" value="/Users/gzhenpeng/IdeaProjects/revcontent-stats-api-java-client/target/surefire/surefirebooter2775915336860798744.jar"/>
+    <property name="sun.boot.class.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/jre/lib/resources.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/jre/lib/rt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/jre/lib/sunrsasign.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/jre/lib/jsse.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/jre/lib/jce.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/jre/lib/charsets.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/jre/lib/jfr.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/jre/classes"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+    <property name="java.runtime.version" value="1.8.0_161-b12"/>
+    <property name="user.name" value="gzhenpeng"/>
+    <property name="path.separator" value=":"/>
+    <property name="os.version" value="10.15.1"/>
+    <property name="java.endorsed.dirs" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/jre/lib/endorsed"/>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="localRepository" value="/Users/gzhenpeng/.m2/repository"/>
+    <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
+    <property name="java.io.tmpdir" value="/var/folders/hn/1rvhnfb94pqd1k0dz41jg35r0000gp/T/"/>
+    <property name="java.version" value="1.8.0_161"/>
+    <property name="user.dir" value="/Users/gzhenpeng/IdeaProjects/revcontent-stats-api-java-client"/>
+    <property name="os.arch" value="x86_64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="java.awt.printerjob" value="sun.lwawt.macosx.CPrinterJob"/>
+    <property name="sun.os.patch.level" value="unknown"/>
+    <property name="java.library.path" value="/Users/gzhenpeng/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:."/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="java.vm.version" value="25.161-b12"/>
+    <property name="java.ext.dirs" value="/Users/gzhenpeng/Library/Java/Extensions:/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/jre/lib/ext:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
+    <property name="java.class.version" value="52.0"/>
+    <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+  </properties>
+  <testcase name="listWidgetTargets" classname="com.xy1m.services.TargetServiceImplTest" time="0">
+    <skipped/>
+    <system-out><![CDATA[2019-12-17 12:20:31 DEBUG RevContentEndpointsRetrofitFactory:22 [main] - creating authentication endpoint using retrofit for class [interface com.xy1m.internal.AuthenticationEndpoint]
+2019-12-17 12:20:31 DEBUG RevContentEndpointsRetrofitFactory:29 [main] - creating endpoint using retrofit for class [interface com.xy1m.internal.BoostEndpoint]
+2019-12-17 12:20:31 DEBUG RevContentEndpointsRetrofitFactory:29 [main] - creating endpoint using retrofit for class [interface com.xy1m.internal.BoostPerformanceEndpoint]
+2019-12-17 12:20:31 DEBUG RevContentEndpointsRetrofitFactory:29 [main] - creating endpoint using retrofit for class [interface com.xy1m.internal.HelperEndpoint]
+2019-12-17 12:20:31 DEBUG RevContentEndpointsRetrofitFactory:29 [main] - creating endpoint using retrofit for class [interface com.xy1m.internal.ContentEndpoint]
+2019-12-17 12:20:31 DEBUG RevContentEndpointsRetrofitFactory:29 [main] - creating endpoint using retrofit for class [interface com.xy1m.internal.WidgetEndpoint]
+2019-12-17 12:20:31 DEBUG RevContentEndpointsRetrofitFactory:29 [main] - creating endpoint using retrofit for class [interface com.xy1m.internal.TargetEndpoint]
+]]></system-out>
+  </testcase>
+  <testcase name="listBoostTargets" classname="com.xy1m.services.TargetServiceImplTest" time="0">
+    <skipped/>
+  </testcase>
+  <testcase name="updateWidgetTarget" classname="com.xy1m.services.TargetServiceImplTest" time="0">
+    <skipped/>
+  </testcase>
+  <testcase name="updateBoostTarget" classname="com.xy1m.services.TargetServiceImplTest" time="0">
+    <skipped/>
+  </testcase>
+</testsuite>

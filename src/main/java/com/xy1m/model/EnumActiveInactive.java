@@ -1,5 +1,6 @@
 package com.xy1m.model;
 
+@Deprecated
 public enum EnumActiveInactive {
-    ACTIVE, INACTIVE
+    active, inactive
 }

@@ -5,7 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.xy1m.RevContent;
 import com.xy1m.internal.config.SerializationConfig;
 import com.xy1m.internal.serialization.SerializationMapperCreator;
-import com.xy1m.model.EnumOnOff;
+import com.xy1m.model.EnumEnabled;
 import com.xy1m.model.EnumOptimize;
 import com.xy1m.model.ResultsData;
 import com.xy1m.model.auth.Authentication;
@@ -57,7 +57,7 @@ public class BoostsServiceImplTest {
         ResultCampaign<BoostAddResponse> result = revContent.campaignsService().createCpc(auth,
                 BoostAddRequest.BoostAddRequestBuilder.builder()
                         .name("cpc campaign from sdk-" + UUID.randomUUID())
-                        .optimize(EnumOptimize.CPC)
+                        .optimize(EnumOptimize.cpc)
                         .build()
         );
         System.out.println(objectMapper.writeValueAsString(result));
@@ -70,7 +70,7 @@ public class BoostsServiceImplTest {
         ResultCampaign<BoostAddResponse> result = revContent.campaignsService().createCpa(auth,
                 BoostAddRequest.BoostAddRequestBuilder.builder()
                         .name("cpa campaign from sdk-" + UUID.randomUUID())
-                        .optimize(EnumOptimize.CPA)
+                        .optimize(EnumOptimize.cpa)
                         .build()
         );
         System.out.println(objectMapper.writeValueAsString(result));
@@ -95,7 +95,7 @@ public class BoostsServiceImplTest {
         BoostUpdateStatusResponse result = revContent.campaignsService().updateStatus(auth,
                 BoostUpdateStatusRequest.BoostUpdateStatusRequestBuilder.builder()
                         .id(BOOST_ID)
-                        .enabled(EnumOnOff.ON)
+                        .enabled(EnumEnabled.on)
                         .build());
         System.out.println(objectMapper.writeValueAsString(result));
         Assert.assertNotNull(result.getId());

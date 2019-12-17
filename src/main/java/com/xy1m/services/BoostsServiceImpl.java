@@ -26,32 +26,36 @@ public class BoostsServiceImpl implements BoostsService {
     }
 
     @Override
-    public ResultsData<BoostGetAllResponse> getAll(Authentication auth) throws APIUnauthorizedException,
-            APIServerException, APIClientException {
+    public ResultsData<BoostGetAllResponse> getAll(Authentication auth)
+            throws APIUnauthorizedException, APIServerException, APIClientException {
         String accessToken = auth.getToken().getAccessTokenForHeader();
         return endpoint.getAllBoosts(accessToken);
     }
 
     @Override
-    public ResultCampaign<BoostAddResponse> createCpc(Authentication auth, BoostAddRequest payload) throws APIUnauthorizedException, APIServerException, APIClientException {
+    public ResultCampaign<BoostAddResponse> createCpc(Authentication auth, BoostAddRequest payload)
+            throws APIUnauthorizedException, APIServerException, APIClientException {
         String accessToken = auth.getToken().getAccessTokenForHeader();
         return endpoint.createCpc(accessToken, payload);
     }
 
     @Override
-    public ResultCampaign<BoostAddResponse> createCpa(Authentication auth, BoostAddRequest payload) throws APIUnauthorizedException, APIServerException, APIClientException {
+    public ResultCampaign<BoostAddResponse> createCpa(Authentication auth, BoostAddRequest payload)
+            throws APIUnauthorizedException, APIServerException, APIClientException {
         String accessToken = auth.getToken().getAccessTokenForHeader();
         return endpoint.createCpa(accessToken, payload);
     }
 
     @Override
-    public BoostUpdateResponse update(Authentication auth, Long boostId, BoostUpdateRequest boost) throws APIUnauthorizedException, APIServerException, APIClientException {
+    public BoostUpdateResponse update(Authentication auth, Long boostId, BoostUpdateRequest boost)
+            throws APIUnauthorizedException, APIServerException, APIClientException {
         String accessToken = auth.getToken().getAccessTokenForHeader();
         return endpoint.update(accessToken, boostId, boost);
     }
 
     @Override
-    public BoostUpdateStatusResponse updateStatus(Authentication auth, BoostUpdateStatusRequest boost) throws APIUnauthorizedException, APIServerException, APIClientException {
+    public BoostUpdateStatusResponse updateStatus(Authentication auth, BoostUpdateStatusRequest boost)
+            throws APIUnauthorizedException, APIServerException, APIClientException {
         String accessToken = auth.getToken().getAccessTokenForHeader();
         return endpoint.updateStatus(accessToken, boost);
     }

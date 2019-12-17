@@ -3,7 +3,7 @@ package com.xy1m.model.content;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.xy1m.model.EnumContentType;
-import com.xy1m.model.EnumOnOff;
+import com.xy1m.model.EnumEnabled;
 
 import java.util.Objects;
 
@@ -20,7 +20,7 @@ public class ContentUpdateRequest {
     // 30
     private String brandName;
     private EnumContentType contentType;
-    private EnumOnOff enabled;
+    private EnumEnabled enabled;
 
     public Long getId() {
         return id;
@@ -70,11 +70,11 @@ public class ContentUpdateRequest {
         this.contentType = contentType;
     }
 
-    public EnumOnOff getEnabled() {
+    public EnumEnabled getEnabled() {
         return enabled;
     }
 
-    public void setEnabled(EnumOnOff enabled) {
+    public void setEnabled(EnumEnabled enabled) {
         this.enabled = enabled;
     }
 
@@ -121,7 +121,7 @@ public class ContentUpdateRequest {
         // 30
         private String brandName;
         private EnumContentType contentType;
-        private EnumOnOff enabled;
+        private EnumEnabled enabled;
 
         private APIRequestUpdateContentBuilder() {
         }
@@ -160,7 +160,7 @@ public class ContentUpdateRequest {
             return this;
         }
 
-        public APIRequestUpdateContentBuilder enabled(EnumOnOff enabled) {
+        public APIRequestUpdateContentBuilder enabled(EnumEnabled enabled) {
             this.enabled = enabled;
             return this;
         }

@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.xy1m.services.BoostPerformanceServiceImplTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0.003 s - in com.xy1m.services.BoostPerformanceServiceImplTest

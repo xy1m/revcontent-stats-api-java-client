@@ -1,5 +1,5 @@
 package com.xy1m.model;
 
 public enum EnumStatus {
-    ACTIVE, CONTENT_IN_REVIEW, BALANCE_ISSUE, BUDGET_EXHAUSTED, INACTIVE, DISABLED, ARCHIVED, NON_ARCHIVED
+    active, content_in_review, balance_issue, budget_exhausted, inactive, disabled, archived, non_archived
 }
