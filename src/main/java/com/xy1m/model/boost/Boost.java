@@ -25,7 +25,7 @@ class Boost {
     private EnumEnabled pacing;
     // default cpc
     private EnumOptimize optimize;
-    private Conversion conversion;
+    private List<Conversion> conversion;
     // default immediately
     private String startDate;
     // default never
@@ -109,11 +109,11 @@ class Boost {
         this.optimize = optimize;
     }
 
-    public Conversion getConversion() {
+    public List<Conversion> getConversion() {
         return conversion;
     }
 
-    public void setConversion(Conversion conversion) {
+    public void setConversion(List<Conversion> conversion) {
         this.conversion = conversion;
     }
 
@@ -440,7 +440,7 @@ class Boost {
         private EnumEnabled pacing;
         // default cpc
         private EnumOptimize optimize;
-        private Conversion conversion;
+        private List<Conversion> conversion;
         // default immediately
         private String startDate;
         // default never
@@ -494,7 +494,7 @@ class Boost {
             return this;
         }
 
-        public APIRequestAddBuilder conversion(Conversion conversion) {
+        public APIRequestAddBuilder conversion(List<Conversion> conversion) {
             this.conversion = conversion;
             return this;
         }
@@ -592,7 +592,7 @@ class Boost {
         private String budgetAmount;
         private EnumEnabled pacing;
         private EnumOptimize optimize;
-        private Conversion conversion;
+        private List<Conversion> conversion;
         private String startDateTime;
         private String hasEndDate;
         private String endDateTime;
@@ -651,7 +651,7 @@ class Boost {
             return this;
         }
 
-        public APIRequestUpdateBuilder conversion(Conversion conversion) {
+        public APIRequestUpdateBuilder conversion(List<Conversion> conversion) {
             this.conversion = conversion;
             return this;
         }

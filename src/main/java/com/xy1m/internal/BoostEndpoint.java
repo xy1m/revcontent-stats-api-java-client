@@ -18,7 +18,7 @@ import java.util.Map;
 
 public interface BoostEndpoint {
 
-    @POST(Paths.BACKSTAGE_API_PATH_PREFIX + "/boosts/addContent")
+    @POST(Paths.BACKSTAGE_API_PATH_PREFIX + "/boosts/add")
     @Headers("ContentAddRequest-Type: application/json")
     ResultCampaign<Boost> addBoost(@Header("Authorization") String authToken,
                                    @Body Boost boost)

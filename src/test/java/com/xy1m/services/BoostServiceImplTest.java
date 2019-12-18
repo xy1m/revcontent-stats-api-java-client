@@ -13,11 +13,13 @@ import com.xy1m.model.ResultsData;
 import com.xy1m.model.auth.Authentication;
 import com.xy1m.model.auth.Token;
 import com.xy1m.model.boost.Boost;
+import com.xy1m.model.conversion.Conversion;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Ignore;
 import org.junit.Test;
 
+import java.util.Arrays;
 import java.util.UUID;
 
 public class BoostServiceImplTest {
@@ -33,7 +35,7 @@ public class BoostServiceImplTest {
     public static void setUp() {
         revContent = RevContent.builder().build();
         Token token = new Token();
-        token.setAccessToken("29c2e2d3d57bcd8225675dc28b85c70fe45eb491");
+        token.setAccessToken("8b096d6a1925e7a20e710eef8d6d40757e492bbd");
         auth = new Authentication(null, token);
         objectMapper = SerializationMapperCreator.createObjectMapper(new SerializationConfig());
     }
@@ -49,10 +51,13 @@ public class BoostServiceImplTest {
     @Test
     @Ignore
     public void addBoost() throws JsonProcessingException {
+        Conversion conversion = new Conversion();
+        conversion.setId("4900");
         ResultCampaign<Boost> result = revContent.campaignsService().addBoost(auth,
                 Boost.APIRequestAddBuilder.builder()
-                        .name("cpc campaign from sdk-" + UUID.randomUUID())
-                        .optimize(EnumOptimize.cpc)
+                        .name("cpa campaign with conversion from sdk-" + UUID.randomUUID())
+                        .optimize(EnumOptimize.cpa)
+                        .conversion(Arrays.asList(conversion))
                         .build()
         );
         System.out.println(objectMapper.writeValueAsString(result));

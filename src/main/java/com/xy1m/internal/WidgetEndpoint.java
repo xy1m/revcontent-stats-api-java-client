@@ -18,7 +18,7 @@ public interface WidgetEndpoint {
      * @return succeed response { "success": true }
      * @throws APIException
      */
-    @POST(Paths.BACKSTAGE_API_PATH_PREFIX + "/boosts/{boost_id}/targets/blacklist/widgets/addContent")
+    @POST(Paths.BACKSTAGE_API_PATH_PREFIX + "/boosts/{boost_id}/targets/blacklist/widgets/add")
     @Headers("ContentAddRequest-Type: application/json")
     ResultsData<Widget> addWidget(@Header("Authorization") String authToken,
                                   @Path("boost_id") String boostId,
@@ -31,7 +31,7 @@ public interface WidgetEndpoint {
      * @return succeed response { "success": true }
      * @throws APIException
      */
-    @POST(Paths.BACKSTAGE_API_PATH_PREFIX + "/boosts/{boost_id}/targets/blacklist/widgets/deleteWidget")
+    @POST(Paths.BACKSTAGE_API_PATH_PREFIX + "/boosts/{boost_id}/targets/blacklist/widgets/delete")
     @Headers("ContentAddRequest-Type: application/json")
     ResultsData<Widget> deleteWidget(@Header("Authorization") String authToken,
                                      @Path("boost_id") String boostId,

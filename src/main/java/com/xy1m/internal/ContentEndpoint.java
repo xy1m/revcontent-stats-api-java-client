@@ -18,7 +18,7 @@ import java.util.Map;
 
 public interface ContentEndpoint {
 
-    @POST(Paths.BACKSTAGE_API_PATH_PREFIX + "/boosts/{boost_id}/content/addContent")
+    @POST(Paths.BACKSTAGE_API_PATH_PREFIX + "/boosts/{boost_id}/content/add")
     @Headers("ContentAddRequest-Type: application/json")
     ResultCreative<Content> addContent(@Header("Authorization") String authToken,
                                        @Path("boost_id") String boostId,
