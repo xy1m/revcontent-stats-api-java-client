@@ -2,24 +2,33 @@ package com.xy1m.model.boost;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.xy1m.model.EnumEnabled;
+import com.xy1m.model.EnumOptimize;
+import com.xy1m.model.EnumStatus;
+import com.xy1m.model.conversion.Conversion;
 
-import java.math.BigDecimal;
 import java.util.List;
 import java.util.Objects;
 
-@Deprecated
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
+public
 class Boost {
     // create
     private String id;
     private String name;
-    private BigDecimal bidAmount;
+    // default 0.5
+    private String bidAmount;
+    // default unlimited
     private String budget;
-    private String pacing;
-    private String optimize;
-    private Object conversion;
+    // If budget is set to 'unlimited', pacing will default to 'off'. Otherwise, default is 'on'.
+    private EnumEnabled pacing;
+    // default cpc
+    private EnumOptimize optimize;
+    private Conversion conversion;
+    // default immediately
     private String startDate;
+    // default never
     private String endDate;
     private String targetType;
     private String targetTargeting;
@@ -33,19 +42,19 @@ class Boost {
     private String trackingCode;
     // cpa
     private List<Pixel> pixels;
-    // update boost setting
-    private BigDecimal defaultBid;
+    // updateContent boost setting
+    private String defaultBid;
     private String budgetType;
-    private BigDecimal budgetAmount;
+    private String budgetAmount;
     private String startDateTime;
     private String hasEndDate;
     private String endDateTime;
     private List<String> mobileTraffic;
     private List<String> languageTraffic;
     private String utmCodes;
-    // update boost status
-    private String enabled;
-    private String status;
+    // updateContent boost status
+    private EnumEnabled enabled;
+    private EnumStatus status;
     // all boosts
     private String minBid;
     private String maxBid;
@@ -68,11 +77,11 @@ class Boost {
         this.name = name;
     }
 
-    public BigDecimal getBidAmount() {
+    public String getBidAmount() {
         return bidAmount;
     }
 
-    public void setBidAmount(BigDecimal bidAmount) {
+    public void setBidAmount(String bidAmount) {
         this.bidAmount = bidAmount;
     }
 
@@ -84,27 +93,27 @@ class Boost {
         this.budget = budget;
     }
 
-    public String getPacing() {
+    public EnumEnabled getPacing() {
         return pacing;
     }
 
-    public void setPacing(String pacing) {
+    public void setPacing(EnumEnabled pacing) {
         this.pacing = pacing;
     }
 
-    public String getOptimize() {
+    public EnumOptimize getOptimize() {
         return optimize;
     }
 
-    public void setOptimize(String optimize) {
+    public void setOptimize(EnumOptimize optimize) {
         this.optimize = optimize;
     }
 
-    public Object getConversion() {
+    public Conversion getConversion() {
         return conversion;
     }
 
-    public void setConversion(Object conversion) {
+    public void setConversion(Conversion conversion) {
         this.conversion = conversion;
     }
 
@@ -212,11 +221,11 @@ class Boost {
         this.pixels = pixels;
     }
 
-    public BigDecimal getDefaultBid() {
+    public String getDefaultBid() {
         return defaultBid;
     }
 
-    public void setDefaultBid(BigDecimal defaultBid) {
+    public void setDefaultBid(String defaultBid) {
         this.defaultBid = defaultBid;
     }
 
@@ -228,11 +237,11 @@ class Boost {
         this.budgetType = budgetType;
     }
 
-    public BigDecimal getBudgetAmount() {
+    public String getBudgetAmount() {
         return budgetAmount;
     }
 
-    public void setBudgetAmount(BigDecimal budgetAmount) {
+    public void setBudgetAmount(String budgetAmount) {
         this.budgetAmount = budgetAmount;
     }
 
@@ -284,19 +293,19 @@ class Boost {
         this.utmCodes = utmCodes;
     }
 
-    public String getEnabled() {
+    public EnumEnabled getEnabled() {
         return enabled;
     }
 
-    public void setEnabled(String enabled) {
+    public void setEnabled(EnumEnabled enabled) {
         this.enabled = enabled;
     }
 
-    public String getStatus() {
+    public EnumStatus getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(EnumStatus status) {
         this.status = status;
     }
 
@@ -341,8 +350,8 @@ class Boost {
                 Objects.equals(getName(), boost.getName()) &&
                 Objects.equals(getBidAmount(), boost.getBidAmount()) &&
                 Objects.equals(getBudget(), boost.getBudget()) &&
-                Objects.equals(getPacing(), boost.getPacing()) &&
-                Objects.equals(getOptimize(), boost.getOptimize()) &&
+                getPacing() == boost.getPacing() &&
+                getOptimize() == boost.getOptimize() &&
                 Objects.equals(getConversion(), boost.getConversion()) &&
                 Objects.equals(getStartDate(), boost.getStartDate()) &&
                 Objects.equals(getEndDate(), boost.getEndDate()) &&
@@ -366,8 +375,8 @@ class Boost {
                 Objects.equals(getMobileTraffic(), boost.getMobileTraffic()) &&
                 Objects.equals(getLanguageTraffic(), boost.getLanguageTraffic()) &&
                 Objects.equals(getUtmCodes(), boost.getUtmCodes()) &&
-                Objects.equals(getEnabled(), boost.getEnabled()) &&
-                Objects.equals(getStatus(), boost.getStatus()) &&
+                getEnabled() == boost.getEnabled() &&
+                getStatus() == boost.getStatus() &&
                 Objects.equals(getMinBid(), boost.getMinBid()) &&
                 Objects.equals(getMaxBid(), boost.getMaxBid()) &&
                 Objects.equals(getCost(), boost.getCost()) &&
@@ -381,306 +390,343 @@ class Boost {
 
     @Override
     public String toString() {
-        return "Boost{" +
-                "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                ", bidAmount=" + bidAmount +
-                ", budget='" + budget + '\'' +
-                ", pacing='" + pacing + '\'' +
-                ", optimize='" + optimize + '\'' +
-                ", conversion=" + conversion +
-                ", startDate='" + startDate + '\'' +
-                ", endDate='" + endDate + '\'' +
-                ", targetType='" + targetType + '\'' +
-                ", targetTargeting='" + targetTargeting + '\'' +
-                ", targetCodes='" + targetCodes + '\'' +
-                ", countryTargeting='" + countryTargeting + '\'' +
-                ", countryCodes=" + countryCodes +
-                ", regionTargeting='" + regionTargeting + '\'' +
-                ", regionCodes=" + regionCodes +
-                ", deviceTargeting=" + deviceTargeting +
-                ", languageTargeting=" + languageTargeting +
-                ", trackingCode='" + trackingCode + '\'' +
-                ", pixels=" + pixels +
-                ", defaultBid=" + defaultBid +
-                ", budgetType='" + budgetType + '\'' +
-                ", budgetAmount=" + budgetAmount +
-                ", startDateTime='" + startDateTime + '\'' +
-                ", hasEndDate='" + hasEndDate + '\'' +
-                ", endDateTime='" + endDateTime + '\'' +
-                ", mobileTraffic=" + mobileTraffic +
-                ", languageTraffic=" + languageTraffic +
-                ", utmCodes='" + utmCodes + '\'' +
-                ", enabled='" + enabled + '\'' +
-                ", status='" + status + '\'' +
-                ", minBid='" + minBid + '\'' +
-                ", maxBid='" + maxBid + '\'' +
-                ", cost='" + cost + '\'' +
-                ", ctr='" + ctr + '\'' +
-                '}';
+        final StringBuffer sb = new StringBuffer("Boost{");
+        sb.append("id='").append(id).append('\'');
+        sb.append(", name='").append(name).append('\'');
+        sb.append(", bidAmount=").append(bidAmount);
+        sb.append(", budget='").append(budget).append('\'');
+        sb.append(", pacing=").append(pacing);
+        sb.append(", optimize=").append(optimize);
+        sb.append(", conversion=").append(conversion);
+        sb.append(", startDate='").append(startDate).append('\'');
+        sb.append(", endDate='").append(endDate).append('\'');
+        sb.append(", targetType='").append(targetType).append('\'');
+        sb.append(", targetTargeting='").append(targetTargeting).append('\'');
+        sb.append(", targetCodes='").append(targetCodes).append('\'');
+        sb.append(", countryTargeting='").append(countryTargeting).append('\'');
+        sb.append(", countryCodes=").append(countryCodes);
+        sb.append(", regionTargeting='").append(regionTargeting).append('\'');
+        sb.append(", regionCodes=").append(regionCodes);
+        sb.append(", deviceTargeting=").append(deviceTargeting);
+        sb.append(", languageTargeting=").append(languageTargeting);
+        sb.append(", trackingCode='").append(trackingCode).append('\'');
+        sb.append(", pixels=").append(pixels);
+        sb.append(", defaultBid='").append(defaultBid).append('\'');
+        sb.append(", budgetType='").append(budgetType).append('\'');
+        sb.append(", budgetAmount='").append(budgetAmount).append('\'');
+        sb.append(", startDateTime='").append(startDateTime).append('\'');
+        sb.append(", hasEndDate='").append(hasEndDate).append('\'');
+        sb.append(", endDateTime='").append(endDateTime).append('\'');
+        sb.append(", mobileTraffic=").append(mobileTraffic);
+        sb.append(", languageTraffic=").append(languageTraffic);
+        sb.append(", utmCodes='").append(utmCodes).append('\'');
+        sb.append(", enabled=").append(enabled);
+        sb.append(", status=").append(status);
+        sb.append(", minBid='").append(minBid).append('\'');
+        sb.append(", maxBid='").append(maxBid).append('\'');
+        sb.append(", cost='").append(cost).append('\'');
+        sb.append(", ctr='").append(ctr).append('\'');
+        sb.append('}');
+        return sb.toString();
     }
 
-    public static final class BoostBuilder {
-        // create
-        private String id;
+    public static class APIRequestAddBuilder {
         private String name;
-        private BigDecimal bidAmount;
+        // default 0.5
+        private String bidAmount;
+        // default unlimited
         private String budget;
-        private String pacing;
-        private String optimize;
-        private Object conversion;
+        // If budget is set to 'unlimited', pacing will default to 'off'. Otherwise, default is 'on'.
+        private EnumEnabled pacing;
+        // default cpc
+        private EnumOptimize optimize;
+        private Conversion conversion;
+        // default immediately
         private String startDate;
+        // default never
         private String endDate;
+        // default tag
         private String targetType;
+        // default all
         private String targetTargeting;
         private String targetCodes;
+        // default all
         private String countryTargeting;
         private List<String> countryCodes;
+        // default all
         private String regionTargeting;
         private List<String> regionCodes;
+        // default all
         private List<String> deviceTargeting;
+        // default all
         private List<String> languageTargeting;
         private String trackingCode;
-        // cpa
-        private List<Pixel> pixels;
-        // update boost setting
-        private BigDecimal defaultBid;
-        private String budgetType;
-        private BigDecimal budgetAmount;
-        private String startDateTime;
-        private String hasEndDate;
-        private String endDateTime;
-        private List<String> mobileTraffic;
-        private List<String> languageTraffic;
-        private String utmCodes;
-        // update boost status
-        private String enabled;
-        private String status;
-        // all boosts
-        private String minBid;
-        private String maxBid;
-        private String cost;
-        private String ctr;
 
-        private BoostBuilder() {
+        private APIRequestAddBuilder() {
         }
 
-        public static BoostBuilder builder() {
-            return new BoostBuilder();
+        public static APIRequestAddBuilder builder() {
+            return new APIRequestAddBuilder();
         }
 
-        public BoostBuilder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-        public BoostBuilder name(String name) {
+        public APIRequestAddBuilder name(String name) {
             this.name = name;
             return this;
         }
 
-        public BoostBuilder bidAmount(BigDecimal bidAmount) {
+        public APIRequestAddBuilder bidAmount(String bidAmount) {
             this.bidAmount = bidAmount;
             return this;
         }
 
-        public BoostBuilder budget(String budget) {
+        public APIRequestAddBuilder budget(String budget) {
             this.budget = budget;
             return this;
         }
 
-        public BoostBuilder pacing(String pacing) {
+        public APIRequestAddBuilder pacing(EnumEnabled pacing) {
             this.pacing = pacing;
             return this;
         }
 
-        public BoostBuilder optimize(String optimize) {
+        public APIRequestAddBuilder optimize(EnumOptimize optimize) {
             this.optimize = optimize;
             return this;
         }
 
-        public BoostBuilder conversion(Object conversion) {
+        public APIRequestAddBuilder conversion(Conversion conversion) {
             this.conversion = conversion;
             return this;
         }
 
-        public BoostBuilder startDate(String startDate) {
+        public APIRequestAddBuilder startDate(String startDate) {
             this.startDate = startDate;
             return this;
         }
 
-        public BoostBuilder endDate(String endDate) {
+        public APIRequestAddBuilder endDate(String endDate) {
             this.endDate = endDate;
             return this;
         }
 
-        public BoostBuilder targetType(String targetType) {
+        public APIRequestAddBuilder targetType(String targetType) {
             this.targetType = targetType;
             return this;
         }
 
-        public BoostBuilder targetTargeting(String targetTargeting) {
+        public APIRequestAddBuilder targetTargeting(String targetTargeting) {
             this.targetTargeting = targetTargeting;
             return this;
         }
 
-        public BoostBuilder targetCodes(String targetCodes) {
+        public APIRequestAddBuilder targetCodes(String targetCodes) {
             this.targetCodes = targetCodes;
             return this;
         }
 
-        public BoostBuilder countryTargeting(String countryTargeting) {
+        public APIRequestAddBuilder countryTargeting(String countryTargeting) {
             this.countryTargeting = countryTargeting;
             return this;
         }
 
-        public BoostBuilder countryCodes(List<String> countryCodes) {
+        public APIRequestAddBuilder scountryCodes(List<String> countryCodes) {
             this.countryCodes = countryCodes;
             return this;
         }
 
-        public BoostBuilder regionTargeting(String regionTargeting) {
+        public APIRequestAddBuilder regionTargeting(String regionTargeting) {
             this.regionTargeting = regionTargeting;
             return this;
         }
 
-        public BoostBuilder regionCodes(List<String> regionCodes) {
+        public APIRequestAddBuilder regionCodes(List<String> regionCodes) {
             this.regionCodes = regionCodes;
             return this;
         }
 
-        public BoostBuilder deviceTargeting(List<String> deviceTargeting) {
+        public APIRequestAddBuilder deviceTargeting(List<String> deviceTargeting) {
             this.deviceTargeting = deviceTargeting;
             return this;
         }
 
-        public BoostBuilder languageTargeting(List<String> languageTargeting) {
+        public APIRequestAddBuilder languageTargeting(List<String> languageTargeting) {
             this.languageTargeting = languageTargeting;
             return this;
         }
 
-        public BoostBuilder trackingCode(String trackingCode) {
+        public APIRequestAddBuilder trackingCode(String trackingCode) {
             this.trackingCode = trackingCode;
-            return this;
-        }
-
-        public BoostBuilder pixels(List<Pixel> pixels) {
-            this.pixels = pixels;
-            return this;
-        }
-
-        public BoostBuilder defaultBid(BigDecimal defaultBid) {
-            this.defaultBid = defaultBid;
-            return this;
-        }
-
-        public BoostBuilder budgetType(String budgetType) {
-            this.budgetType = budgetType;
-            return this;
-        }
-
-        public BoostBuilder budgetAmount(BigDecimal budgetAmount) {
-            this.budgetAmount = budgetAmount;
-            return this;
-        }
-
-        public BoostBuilder startDateTime(String startDateTime) {
-            this.startDateTime = startDateTime;
-            return this;
-        }
-
-        public BoostBuilder hasEndDate(String hasEndDate) {
-            this.hasEndDate = hasEndDate;
-            return this;
-        }
-
-        public BoostBuilder endDateTime(String endDateTime) {
-            this.endDateTime = endDateTime;
-            return this;
-        }
-
-        public BoostBuilder mobileTraffic(List<String> mobileTraffic) {
-            this.mobileTraffic = mobileTraffic;
-            return this;
-        }
-
-        public BoostBuilder languageTraffic(List<String> languageTraffic) {
-            this.languageTraffic = languageTraffic;
-            return this;
-        }
-
-        public BoostBuilder utmCodes(String utmCodes) {
-            this.utmCodes = utmCodes;
-            return this;
-        }
-
-        public BoostBuilder enabled(String enabled) {
-            this.enabled = enabled;
-            return this;
-        }
-
-        public BoostBuilder status(String status) {
-            this.status = status;
-            return this;
-        }
-
-        public BoostBuilder minBid(String minBid) {
-            this.minBid = minBid;
-            return this;
-        }
-
-        public BoostBuilder maxBid(String maxBid) {
-            this.maxBid = maxBid;
-            return this;
-        }
-
-        public BoostBuilder cost(String cost) {
-            this.cost = cost;
-            return this;
-        }
-
-        public BoostBuilder ctr(String ctr) {
-            this.ctr = ctr;
             return this;
         }
 
         public Boost build() {
             Boost boost = new Boost();
-            boost.setId(id);
-            boost.setName(name);
-            boost.setBidAmount(bidAmount);
-            boost.setBudget(budget);
-            boost.setPacing(pacing);
-            boost.setOptimize(optimize);
-            boost.setConversion(conversion);
-            boost.setStartDate(startDate);
-            boost.setEndDate(endDate);
-            boost.setTargetType(targetType);
-            boost.setTargetTargeting(targetTargeting);
-            boost.setTargetCodes(targetCodes);
-            boost.setCountryTargeting(countryTargeting);
-            boost.setCountryCodes(countryCodes);
-            boost.setRegionTargeting(regionTargeting);
-            boost.setRegionCodes(regionCodes);
-            boost.setDeviceTargeting(deviceTargeting);
-            boost.setLanguageTargeting(languageTargeting);
-            boost.setTrackingCode(trackingCode);
-            boost.setPixels(pixels);
-            boost.setDefaultBid(defaultBid);
-            boost.setBudgetType(budgetType);
-            boost.setBudgetAmount(budgetAmount);
-            boost.setStartDateTime(startDateTime);
-            boost.setHasEndDate(hasEndDate);
-            boost.setEndDateTime(endDateTime);
-            boost.setMobileTraffic(mobileTraffic);
-            boost.setLanguageTraffic(languageTraffic);
-            boost.setUtmCodes(utmCodes);
-            boost.setEnabled(enabled);
-            boost.setStatus(status);
-            boost.setMinBid(minBid);
-            boost.setMaxBid(maxBid);
-            boost.setCost(cost);
-            boost.setCtr(ctr);
+            boost.name = this.name;
+            boost.bidAmount = this.bidAmount;
+            boost.budget = this.budget;
+            boost.pacing = this.pacing;
+            boost.optimize = this.optimize;
+            boost.conversion = this.conversion;
+            boost.startDate = this.startDate;
+            boost.endDate = this.endDate;
+            boost.targetType = this.targetType;
+            boost.targetTargeting = this.targetTargeting;
+            boost.targetCodes = this.targetCodes;
+            boost.countryTargeting = this.countryTargeting;
+            boost.countryCodes = this.countryCodes;
+            boost.regionTargeting = this.regionTargeting;
+            boost.regionCodes = this.regionCodes;
+            boost.deviceTargeting = this.deviceTargeting;
+            boost.languageTargeting = this.languageTargeting;
+            boost.trackingCode = this.trackingCode;
+            return boost;
+        }
+    }
+
+    public static class APIRequestUpdateBuilder {
+        private String id;
+        private EnumEnabled enabled;
+        private String name;
+        private String defaultBid;
+        private String budgetType;
+        private String budgetAmount;
+        private EnumEnabled pacing;
+        private EnumOptimize optimize;
+        private Conversion conversion;
+        private String startDateTime;
+        private String hasEndDate;
+        private String endDateTime;
+        private String countryTargeting;
+        private List<String> countryCodes;
+        private String regionTargeting;
+        private List<String> regionCodes;
+        private List<String> mobileTraffic;
+        private List<String> languageTraffic;
+        private String utmCodes;
+
+        private APIRequestUpdateBuilder() {
+        }
+
+        public static APIRequestUpdateBuilder builder() {
+            return new APIRequestUpdateBuilder();
+        }
+
+        public APIRequestUpdateBuilder id(String id) {
+            this.id = id;
+            return this;
+        }
+
+        public APIRequestUpdateBuilder enabled(EnumEnabled enabled) {
+            this.enabled = enabled;
+            return this;
+        }
+
+        public APIRequestUpdateBuilder name(String name) {
+            this.name = name;
+            return this;
+        }
+
+        public APIRequestUpdateBuilder defaultBid(String defaultBid) {
+            this.defaultBid = defaultBid;
+            return this;
+        }
+
+        public APIRequestUpdateBuilder budgetType(String budgetType) {
+            this.budgetType = budgetType;
+            return this;
+        }
+
+        public APIRequestUpdateBuilder budgetAmount(String budgetAmount) {
+            this.budgetAmount = budgetAmount;
+            return this;
+        }
+
+        public APIRequestUpdateBuilder pacing(EnumEnabled pacing) {
+            this.pacing = pacing;
+            return this;
+        }
+
+        public APIRequestUpdateBuilder optimize(EnumOptimize optimize) {
+            this.optimize = optimize;
+            return this;
+        }
+
+        public APIRequestUpdateBuilder conversion(Conversion conversion) {
+            this.conversion = conversion;
+            return this;
+        }
+
+        public APIRequestUpdateBuilder startDateTime(String startDateTime) {
+            this.startDateTime = startDateTime;
+            return this;
+        }
+
+        public APIRequestUpdateBuilder hasEndDate(String hasEndDate) {
+            this.hasEndDate = hasEndDate;
+            return this;
+        }
+
+        public APIRequestUpdateBuilder endDateTime(String endDateTime) {
+            this.endDateTime = endDateTime;
+            return this;
+        }
+
+        public APIRequestUpdateBuilder countryTargeting(String countryTargeting) {
+            this.countryTargeting = countryTargeting;
+            return this;
+        }
+
+        public APIRequestUpdateBuilder countryCodes(List<String> countryCodes) {
+            this.countryCodes = countryCodes;
+            return this;
+        }
+
+        public APIRequestUpdateBuilder regionTargeting(String regionTargeting) {
+            this.regionTargeting = regionTargeting;
+            return this;
+        }
+
+        public APIRequestUpdateBuilder regionCodes(List<String> regionCodes) {
+            this.regionCodes = regionCodes;
+            return this;
+        }
+
+        public APIRequestUpdateBuilder mobileTraffic(List<String> mobileTraffic) {
+            this.mobileTraffic = mobileTraffic;
+            return this;
+        }
+
+        public APIRequestUpdateBuilder languageTraffic(List<String> languageTraffic) {
+            this.languageTraffic = languageTraffic;
+            return this;
+        }
+
+        public APIRequestUpdateBuilder utmCodes(String utmCodes) {
+            this.utmCodes = utmCodes;
+            return this;
+        }
+
+        public Boost build() {
+            Boost boost = new Boost();
+            boost.id = this.id;
+            boost.enabled = this.enabled;
+            boost.name = this.name;
+            boost.defaultBid = this.defaultBid;
+            boost.budgetType = this.budgetType;
+            boost.budgetAmount = this.budgetAmount;
+            boost.pacing = this.pacing;
+            boost.optimize = this.optimize;
+            boost.conversion = this.conversion;
+            boost.startDateTime = this.startDateTime;
+            boost.hasEndDate = this.hasEndDate;
+            boost.endDateTime = this.endDateTime;
+            boost.countryTargeting = this.countryTargeting;
+            boost.countryCodes = this.countryCodes;
+            boost.regionTargeting = this.regionTargeting;
+            boost.regionCodes = this.regionCodes;
+            boost.mobileTraffic = this.mobileTraffic;
+            boost.languageTargeting = this.languageTraffic;
+            boost.utmCodes = this.utmCodes;
             return boost;
         }
     }

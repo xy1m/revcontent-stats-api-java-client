@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.xy1m.services.BoostPerformanceServiceImplTest" time="0.003" tests="1" errors="0" skipped="1" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.xy1m.services.BoostPerformanceServiceImplTest" time="0.004" tests="1" errors="0" skipped="1" failures="0">
   <properties>
     <property name="gopherProxySet" value="false"/>
     <property name="awt.toolkit" value="sun.lwawt.macosx.LWCToolkit"/>
@@ -17,7 +17,7 @@
     <property name="user.country" value="CN"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/jre/lib"/>
-    <property name="sun.java.command" value="/Users/gzhenpeng/IdeaProjects/revcontent-stats-api-java-client/target/surefire/surefirebooter2775915336860798744.jar /Users/gzhenpeng/IdeaProjects/revcontent-stats-api-java-client/target/surefire 2019-12-17T12-20-30_287-jvmRun1 surefire6523489181802043101tmp surefire_07512801190904354535tmp"/>
+    <property name="sun.java.command" value="/Users/gzhenpeng/IdeaProjects/revcontent-stats-api-java-client/target/surefire/surefirebooter8333572618045391718.jar /Users/gzhenpeng/IdeaProjects/revcontent-stats-api-java-client/target/surefire 2019-12-17T18-11-04_839-jvmRun1 surefire813514768544261319tmp surefire_03747241303323795225tmp"/>
     <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="surefire.test.class.path" value="/Users/gzhenpeng/IdeaProjects/revcontent-stats-api-java-client/target/test-classes:/Users/gzhenpeng/IdeaProjects/revcontent-stats-api-java-client/target/classes:/Users/gzhenpeng/.m2/repository/org/apache/logging/log4j/log4j-api/2.6.1/log4j-api-2.6.1.jar:/Users/gzhenpeng/.m2/repository/org/apache/logging/log4j/log4j-core/2.6.1/log4j-core-2.6.1.jar:/Users/gzhenpeng/.m2/repository/com/squareup/retrofit2/retrofit/2.5.0/retrofit-2.5.0.jar:/Users/gzhenpeng/.m2/repository/com/squareup/okhttp3/okhttp/3.12.0/okhttp-3.12.0.jar:/Users/gzhenpeng/.m2/repository/com/squareup/okio/okio/1.15.0/okio-1.15.0.jar:/Users/gzhenpeng/.m2/repository/com/squareup/retrofit2/converter-jackson/2.3.0/converter-jackson-2.3.0.jar:/Users/gzhenpeng/.m2/repository/com/squareup/okhttp3/logging-interceptor/3.12.1/logging-interceptor-3.12.1.jar:/Users/gzhenpeng/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.9.10.1/jackson-databind-2.9.10.1.jar:/Users/gzhenpeng/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.9.10/jackson-annotations-2.9.10.jar:/Users/gzhenpeng/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.9.10/jackson-core-2.9.10.jar:/Users/gzhenpeng/.m2/repository/com/google/guava/guava/23.5-jre/guava-23.5-jre.jar:/Users/gzhenpeng/.m2/repository/com/google/code/findbugs/jsr305/1.3.9/jsr305-1.3.9.jar:/Users/gzhenpeng/.m2/repository/org/checkerframework/checker-qual/2.0.0/checker-qual-2.0.0.jar:/Users/gzhenpeng/.m2/repository/com/google/errorprone/error_prone_annotations/2.0.18/error_prone_annotations-2.0.18.jar:/Users/gzhenpeng/.m2/repository/com/google/j2objc/j2objc-annotations/1.1/j2objc-annotations-1.1.jar:/Users/gzhenpeng/.m2/repository/org/codehaus/mojo/animal-sniffer-annotations/1.14/animal-sniffer-annotations-1.14.jar:/Users/gzhenpeng/.m2/repository/junit/junit/4.11/junit-4.11.jar:/Users/gzhenpeng/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -31,7 +31,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.awt.graphicsenv" value="sun.awt.CGraphicsEnvironment"/>
-    <property name="surefire.real.class.path" value="/Users/gzhenpeng/IdeaProjects/revcontent-stats-api-java-client/target/surefire/surefirebooter2775915336860798744.jar"/>
+    <property name="surefire.real.class.path" value="/Users/gzhenpeng/IdeaProjects/revcontent-stats-api-java-client/target/surefire/surefirebooter8333572618045391718.jar"/>
     <property name="sun.boot.class.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/jre/lib/resources.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/jre/lib/rt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/jre/lib/sunrsasign.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/jre/lib/jsse.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/jre/lib/jce.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/jre/lib/charsets.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/jre/lib/jfr.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/jre/classes"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
@@ -63,13 +63,13 @@
   </properties>
   <testcase name="getBoostPerformance" classname="com.xy1m.services.BoostPerformanceServiceImplTest" time="0">
     <skipped/>
-    <system-out><![CDATA[2019-12-17 12:20:31 DEBUG RevContentEndpointsRetrofitFactory:22 [main] - creating authentication endpoint using retrofit for class [interface com.xy1m.internal.AuthenticationEndpoint]
-2019-12-17 12:20:31 DEBUG RevContentEndpointsRetrofitFactory:29 [main] - creating endpoint using retrofit for class [interface com.xy1m.internal.BoostEndpoint]
-2019-12-17 12:20:31 DEBUG RevContentEndpointsRetrofitFactory:29 [main] - creating endpoint using retrofit for class [interface com.xy1m.internal.BoostPerformanceEndpoint]
-2019-12-17 12:20:31 DEBUG RevContentEndpointsRetrofitFactory:29 [main] - creating endpoint using retrofit for class [interface com.xy1m.internal.HelperEndpoint]
-2019-12-17 12:20:31 DEBUG RevContentEndpointsRetrofitFactory:29 [main] - creating endpoint using retrofit for class [interface com.xy1m.internal.ContentEndpoint]
-2019-12-17 12:20:31 DEBUG RevContentEndpointsRetrofitFactory:29 [main] - creating endpoint using retrofit for class [interface com.xy1m.internal.WidgetEndpoint]
-2019-12-17 12:20:31 DEBUG RevContentEndpointsRetrofitFactory:29 [main] - creating endpoint using retrofit for class [interface com.xy1m.internal.TargetEndpoint]
+    <system-out><![CDATA[2019-12-17 18:11:05 DEBUG RevContentEndpointsRetrofitFactory:22 [main] - creating authentication endpoint using retrofit for class [interface com.xy1m.internal.AuthenticationEndpoint]
+2019-12-17 18:11:05 DEBUG RevContentEndpointsRetrofitFactory:29 [main] - creating endpoint using retrofit for class [interface com.xy1m.internal.BoostEndpoint]
+2019-12-17 18:11:05 DEBUG RevContentEndpointsRetrofitFactory:29 [main] - creating endpoint using retrofit for class [interface com.xy1m.internal.BoostPerformanceEndpoint]
+2019-12-17 18:11:05 DEBUG RevContentEndpointsRetrofitFactory:29 [main] - creating endpoint using retrofit for class [interface com.xy1m.internal.HelperEndpoint]
+2019-12-17 18:11:06 DEBUG RevContentEndpointsRetrofitFactory:29 [main] - creating endpoint using retrofit for class [interface com.xy1m.internal.ContentEndpoint]
+2019-12-17 18:11:06 DEBUG RevContentEndpointsRetrofitFactory:29 [main] - creating endpoint using retrofit for class [interface com.xy1m.internal.WidgetEndpoint]
+2019-12-17 18:11:06 DEBUG RevContentEndpointsRetrofitFactory:29 [main] - creating endpoint using retrofit for class [interface com.xy1m.internal.TargetEndpoint]
 ]]></system-out>
   </testcase>
 </testsuite>

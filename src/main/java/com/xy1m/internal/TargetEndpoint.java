@@ -18,26 +18,13 @@ public interface TargetEndpoint {
     /**
      * @param authToken Authorization token
      * @param boostId Boost id
-     * @param payload {id, bid enabled}
-     * @return succeed response { "success": true }
-     * @throws APIException
-     */
-    @POST(Paths.BACKSTAGE_API_PATH_PREFIX + "/boosts/{boost_id}/targets")
-    @Headers("ContentAddRequest-Type: application/json")
-    ResultsData<BoostTarget> updateBoostTarget(@Header("Authorization") String authToken,
-                                               @Path("boost_id") Long boostId,
-                                               @Body BoostTarget payload) throws APIException;
-
-    /**
-     * @param authToken Authorization token
-     * @param boostId Boost id
      * @return Boost targets
      * @throws APIException
      */
     @GET(Paths.BACKSTAGE_API_PATH_PREFIX + "/boosts/{boost_id}/targets")
     @Headers("ContentAddRequest-Type: application/json")
     ResultsData<BoostTarget> listBoostTargets(@Header("Authorization") String authToken,
-                                              @Path("boost_id") Long boostId,
+                                              @Path("boost_id") String boostId,
                                               @QueryMap Map<String, String> filter) throws APIException;
 
     /**
@@ -49,9 +36,9 @@ public interface TargetEndpoint {
      */
     @POST(Paths.BACKSTAGE_API_PATH_PREFIX + "/boosts/{boost_id}/targets")
     @Headers("ContentAddRequest-Type: application/json")
-    ResultsData<WidgetTarget> updateWidgetTarget(@Header("Authorization") String authToken,
-                                                 @Path("boost_id") Long boostId,
-                                                 @Body WidgetTarget payload) throws APIException;
+    ResultsData<BoostTarget> updateBoostTarget(@Header("Authorization") String authToken,
+                                               @Path("boost_id") String boostId,
+                                               @Body BoostTarget payload) throws APIException;
 
     /**
      * @param authToken Authorization token
@@ -62,7 +49,21 @@ public interface TargetEndpoint {
     @GET(Paths.BACKSTAGE_API_PATH_PREFIX + "/boosts/{boost_id}/widgets")
     @Headers("ContentAddRequest-Type: application/json")
     ResultsData<WidgetTarget> listWidgetTargets(@Header("Authorization") String authToken,
-                                                @Path("boost_id") Long boostId,
+                                                @Path("boost_id") String boostId,
                                                 @QueryMap Map<String, String> filter) throws APIException;
+
+    /**
+     * @param authToken Authorization token
+     * @param boostId Boost id
+     * @param payload {id, bid enabled}
+     * @return succeed response { "success": true }
+     * @throws APIException
+     */
+    @POST(Paths.BACKSTAGE_API_PATH_PREFIX + "/boosts/{boost_id}/targets")
+    @Headers("ContentAddRequest-Type: application/json")
+    ResultsData<WidgetTarget> updateWidgetTarget(@Header("Authorization") String authToken,
+                                                 @Path("boost_id") String boostId,
+                                                 @Body WidgetTarget payload) throws APIException;
+
 
 }

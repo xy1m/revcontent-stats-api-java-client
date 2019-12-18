@@ -2,6 +2,7 @@ package com.xy1m.services;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.common.collect.Maps;
 import com.xy1m.RevContent;
 import com.xy1m.internal.config.SerializationConfig;
 import com.xy1m.internal.serialization.SerializationMapperCreator;
@@ -15,13 +16,11 @@ import org.junit.BeforeClass;
 import org.junit.Ignore;
 import org.junit.Test;
 
-import java.util.HashMap;
-
 public class TargetServiceImplTest {
     private static RevContent revContent;
     private static Authentication auth;
     private static ObjectMapper objectMapper;
-    private static long BOOST_ID = 636673L;
+    private static String BOOST_ID = "636673";
 
     /**
      * Token expires in 24 hours so testing is ok
@@ -49,7 +48,7 @@ public class TargetServiceImplTest {
     @Test
     @Ignore
     public void listBoostTargets() throws JsonProcessingException {
-        ResultsData<BoostTarget> result = revContent.targetService().listBoostTargets(auth, BOOST_ID, new HashMap<>());
+        ResultsData<BoostTarget> result = revContent.targetService().listBoostTargets(auth, BOOST_ID, Maps.newHashMap());
         System.out.println(objectMapper.writeValueAsString(result));
     }
 
@@ -67,7 +66,7 @@ public class TargetServiceImplTest {
     @Test
     @Ignore
     public void listWidgetTargets() throws JsonProcessingException {
-        ResultsData<WidgetTarget> result = revContent.targetService().listWidgetTargets(auth, BOOST_ID, new HashMap<>());
+        ResultsData<WidgetTarget> result = revContent.targetService().listWidgetTargets(auth, BOOST_ID, Maps.newHashMap());
         System.out.println(objectMapper.writeValueAsString(result));
     }
 }

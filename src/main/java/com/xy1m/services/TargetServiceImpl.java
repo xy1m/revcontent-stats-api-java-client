@@ -21,28 +21,28 @@ public class TargetServiceImpl implements TargetService {
     }
 
     @Override
-    public ResultsData<BoostTarget> updateBoostTarget(Authentication auth, Long boostId, BoostTarget payload)
+    public ResultsData<BoostTarget> updateBoostTarget(Authentication auth, String boostId, BoostTarget payload)
             throws APIUnauthorizedException, APIServerException, APIClientException {
         String accessToken = auth.getToken().getAccessTokenForHeader();
         return endpoint.updateBoostTarget(accessToken, boostId, payload);
     }
 
     @Override
-    public ResultsData<BoostTarget> listBoostTargets(Authentication auth, Long boostId, Map<String, String> filter)
+    public ResultsData<BoostTarget> listBoostTargets(Authentication auth, String boostId, Map<String, String> filter)
             throws APIUnauthorizedException, APIServerException, APIClientException {
         String accessToken = auth.getToken().getAccessTokenForHeader();
         return endpoint.listBoostTargets(accessToken, boostId, filter);
     }
 
     @Override
-    public ResultsData<WidgetTarget> updateWidgetTarget(Authentication auth, Long boostId, WidgetTarget payload)
+    public ResultsData<WidgetTarget> updateWidgetTarget(Authentication auth, String boostId, WidgetTarget payload)
             throws APIUnauthorizedException, APIServerException, APIClientException {
         String accessToken = auth.getToken().getAccessTokenForHeader();
         return endpoint.updateWidgetTarget(accessToken, boostId, payload);
     }
 
     @Override
-    public ResultsData<WidgetTarget> listWidgetTargets(Authentication auth, Long boostId, Map<String, String> filter)
+    public ResultsData<WidgetTarget> listWidgetTargets(Authentication auth, String boostId, Map<String, String> filter)
             throws APIUnauthorizedException, APIServerException, APIClientException {
         String accessToken = auth.getToken().getAccessTokenForHeader();
         return endpoint.listWidgetTargets(accessToken, boostId, filter);

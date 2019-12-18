@@ -18,7 +18,7 @@ public class WidgetServiceImplTest {
     private static RevContent revContent;
     private static Authentication auth;
     private static ObjectMapper objectMapper;
-    private static long BOOST_ID = 636673L;
+    private static String BOOST_ID = "636673";
 
     /**
      * Token expires in 24 hours so testing is ok
@@ -27,7 +27,7 @@ public class WidgetServiceImplTest {
     public static void setUp() {
         revContent = RevContent.builder().build();
         Token token = new Token();
-        token.setAccessToken("c21676bb59a32436dbabaea6b9bcd64f6df620f0");
+        token.setAccessToken("29c2e2d3d57bcd8225675dc28b85c70fe45eb491");
         auth = new Authentication(null, token);
         objectMapper = SerializationMapperCreator.createObjectMapper(new SerializationConfig());
     }
@@ -50,7 +50,7 @@ public class WidgetServiceImplTest {
 
     @Test
     @Ignore
-    public void removeBlacklist() throws JsonProcessingException {
+    public void deleteBlacklist() throws JsonProcessingException {
         Widget payload = new Widget();
         payload.setId("100,101");
         ResultsData<Widget> result = revContent.widgetService().removeBlacklist(auth, BOOST_ID, payload);

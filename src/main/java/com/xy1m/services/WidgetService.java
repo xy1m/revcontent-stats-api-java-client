@@ -9,6 +9,31 @@ import com.xy1m.model.widget.optimizer.Widget;
 
 
 public interface WidgetService {
+
+    /**
+     * @param auth Authorization token
+     * @param boostId Boost id
+     * @param payload Widget id listContents divided by commas
+     * @return succeed response { "success": true }
+     * @throws APIUnauthorizedException
+     * @throws APIServerException
+     * @throws APIClientException
+     */
+    ResultsData<Widget> addBlacklist(Authentication auth, String boostId, Widget payload)
+            throws APIUnauthorizedException, APIServerException, APIClientException;
+
+    /**
+     * @param auth Authorization token
+     * @param boostId Boost id
+     * @param payload Widget id listContents divided by commas
+     * @return succeed response { "success": true }
+     * @throws APIUnauthorizedException
+     * @throws APIServerException
+     * @throws APIClientException
+     */
+    ResultsData<Widget> removeBlacklist(Authentication auth, String boostId, Widget payload)
+            throws APIUnauthorizedException, APIServerException, APIClientException;
+
     /**
      * @param auth Authorization token
      * @param boostId Boost id
@@ -17,30 +42,7 @@ public interface WidgetService {
      * @throws APIServerException
      * @throws APIClientException
      */
-    ResultsData<Widget> listBlacklist(Authentication auth, Long boostId)
+    ResultsData<Widget> listBlacklist(Authentication auth, String boostId)
             throws APIUnauthorizedException, APIServerException, APIClientException;
 
-    /**
-     * @param auth Authorization token
-     * @param boostId Boost id
-     * @param payload Widget id list divided by commas
-     * @return succeed response { "success": true }
-     * @throws APIUnauthorizedException
-     * @throws APIServerException
-     * @throws APIClientException
-     */
-    ResultsData<Widget> addBlacklist(Authentication auth, Long boostId, Widget payload)
-            throws APIUnauthorizedException, APIServerException, APIClientException;
-
-    /**
-     * @param auth Authorization token
-     * @param boostId Boost id
-     * @param payload Widget id list divided by commas
-     * @return succeed response { "success": true }
-     * @throws APIUnauthorizedException
-     * @throws APIServerException
-     * @throws APIClientException
-     */
-    ResultsData<Widget> removeBlacklist(Authentication auth, Long boostId, Widget payload)
-            throws APIUnauthorizedException, APIServerException, APIClientException;
 }

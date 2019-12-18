@@ -14,37 +14,38 @@ public interface WidgetEndpoint {
     /**
      * @param authToken Authorization token
      * @param boostId Boost id
-     * @return blacklisted widget ids, example: { "data":[{"id":"100"},{"id":"200"}]}
+     * @param payload Widget id listContents divided by commas
+     * @return succeed response { "success": true }
      * @throws APIException
      */
-    @GET(Paths.BACKSTAGE_API_PATH_PREFIX + "/boosts/{boost_id}/targets/blacklist/widgets")
+    @POST(Paths.BACKSTAGE_API_PATH_PREFIX + "/boosts/{boost_id}/targets/blacklist/widgets/addContent")
     @Headers("ContentAddRequest-Type: application/json")
-    ResultsData<Widget> listBlacklist(@Header("Authorization") String authToken,
-                                      @Path("boost_id") Long boostId) throws APIException;
+    ResultsData<Widget> addWidget(@Header("Authorization") String authToken,
+                                  @Path("boost_id") String boostId,
+                                  @Body Widget payload) throws APIException;
 
     /**
      * @param authToken Authorization token
      * @param boostId Boost id
-     * @param payload Widget id list divided by commas
+     * @param payload Widget id listContents divided by commas
      * @return succeed response { "success": true }
      * @throws APIException
      */
-    @POST(Paths.BACKSTAGE_API_PATH_PREFIX + "/boosts/{boost_id}/targets/blacklist/widgets/add")
+    @POST(Paths.BACKSTAGE_API_PATH_PREFIX + "/boosts/{boost_id}/targets/blacklist/widgets/deleteWidget")
     @Headers("ContentAddRequest-Type: application/json")
-    ResultsData<Widget> addBlacklist(@Header("Authorization") String authToken,
-                                     @Path("boost_id") Long boostId,
+    ResultsData<Widget> deleteWidget(@Header("Authorization") String authToken,
+                                     @Path("boost_id") String boostId,
                                      @Body Widget payload) throws APIException;
 
     /**
      * @param authToken Authorization token
      * @param boostId Boost id
-     * @param payload Widget id list divided by commas
-     * @return succeed response { "success": true }
+     * @return blacklisted widget ids, example: { "data":[{"id":"100"},{"id":"200"}]}
      * @throws APIException
      */
-    @POST(Paths.BACKSTAGE_API_PATH_PREFIX + "/boosts/{boost_id}/targets/blacklist/widgets/remove")
+    @GET(Paths.BACKSTAGE_API_PATH_PREFIX + "/boosts/{boost_id}/targets/blacklist/widgets")
     @Headers("ContentAddRequest-Type: application/json")
-    ResultsData<Widget> removeBlacklist(@Header("Authorization") String authToken,
-                                        @Path("boost_id") Long boostId,
-                                        @Body Widget payload) throws APIException;
+    ResultsData<Widget> listWidgets(@Header("Authorization") String authToken,
+                                    @Path("boost_id") String boostId) throws APIException;
+
 }
