@@ -36,7 +36,7 @@ public class HelperServiceImplTest {
     @Test
     @Ignore
     public void getBrandTargets() throws JsonProcessingException {
-        ResultsData<Resource> result = revContent.helpersService().getBrandTargets(auth);
+        ResultsData<Resource> result = revContent.helperService().getBrandTargets(auth);
         System.out.println(objectMapper.writeValueAsString(result));
         Assert.assertNotNull(result);
     }
@@ -44,7 +44,7 @@ public class HelperServiceImplTest {
     @Test
     @Ignore
     public void getTopicTargets() throws JsonProcessingException {
-        ResultsData<Resource> result = revContent.helpersService().getTopicTargets(auth);
+        ResultsData<Resource> result = revContent.helperService().getTopicTargets(auth);
         System.out.println(objectMapper.writeValueAsString(result));
         Assert.assertNotNull(result);
     }
@@ -52,7 +52,7 @@ public class HelperServiceImplTest {
     @Test
     @Ignore
     public void getCountries() throws JsonProcessingException {
-        ResultsData<Resource> result = revContent.helpersService().getCountries(auth);
+        ResultsData<Resource> result = revContent.helperService().getCountries(auth);
         System.out.println(objectMapper.writeValueAsString(result));
         Assert.assertNotNull(result);
     }
@@ -60,7 +60,7 @@ public class HelperServiceImplTest {
     @Test
     @Ignore
     public void getDevices() throws JsonProcessingException {
-        ResultsData<Resource> result = revContent.helpersService().getDevices(auth);
+        ResultsData<Resource> result = revContent.helperService().getDevices(auth);
         System.out.println(objectMapper.writeValueAsString(result));
         Assert.assertNotNull(result);
     }
@@ -68,7 +68,7 @@ public class HelperServiceImplTest {
     @Test
     @Ignore
     public void getLanguages() throws JsonProcessingException {
-        ResultsData<Resource> result = revContent.helpersService().getLanguages(auth);
+        ResultsData<Resource> result = revContent.helperService().getLanguages(auth);
         System.out.println(objectMapper.writeValueAsString(result));
         Assert.assertNotNull(result);
     }
@@ -76,7 +76,7 @@ public class HelperServiceImplTest {
     @Test
     @Ignore
     public void getInterests() throws JsonProcessingException {
-        ResultsData<Interest> result = revContent.helpersService().getInterests(auth);
+        ResultsData<Interest> result = revContent.helperService().getInterests(auth);
         System.out.println(objectMapper.writeValueAsString(result));
         Assert.assertNotNull(result);
     }
@@ -84,7 +84,7 @@ public class HelperServiceImplTest {
     @Test
     @Ignore
     public void getRegions() throws JsonProcessingException {
-        ResultsData<Resource> result = revContent.helpersService().getRegions(auth, "US");
+        ResultsData<Resource> result = revContent.helperService().getRegions(auth, "US");
         System.out.println(objectMapper.writeValueAsString(result));
         Assert.assertNotNull(result);
     }

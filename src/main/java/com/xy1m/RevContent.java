@@ -2,7 +2,6 @@ package com.xy1m;
 
 import com.xy1m.internal.AuthenticationEndpoint;
 import com.xy1m.internal.BoostEndpoint;
-import com.xy1m.internal.BoostPerformanceEndpoint;
 import com.xy1m.internal.CommunicationFactory;
 import com.xy1m.internal.ContentEndpoint;
 import com.xy1m.internal.HelperEndpoint;
@@ -12,8 +11,6 @@ import com.xy1m.internal.config.CommunicationConfig;
 import com.xy1m.internal.config.SerializationConfig;
 import com.xy1m.internal.factories.RevContentEndpointsFactory;
 import com.xy1m.internal.factories.RevContentEndpointsRetrofitFactory;
-import com.xy1m.services.BoostPerformanceService;
-import com.xy1m.services.BoostPerformanceServiceImpl;
 import com.xy1m.services.BoostService;
 import com.xy1m.services.BoostServiceImpl;
 import com.xy1m.services.ContentService;
@@ -31,7 +28,6 @@ public class RevContent {
     private static RevContent instance = RevContent.builder().build();
     private final RevContentAuthenticationService revContentAuthenticationService;
     private final BoostService boostService;
-    private final BoostPerformanceService boostPerformanceService;
     private final HelperService helperService;
     private final ContentService contentService;
     private final WidgetService widgetService;
@@ -39,14 +35,12 @@ public class RevContent {
 
     private RevContent(RevContentAuthenticationService revContentAuthenticationService,
                        BoostService boostService,
-                       BoostPerformanceService boostPerformanceService,
                        HelperService helperService,
                        ContentService contentService,
                        WidgetService widgetService,
                        TargetService targetService) {
         this.revContentAuthenticationService = revContentAuthenticationService;
         this.boostService = boostService;
-        this.boostPerformanceService = boostPerformanceService;
         this.helperService = helperService;
         this.contentService = contentService;
         this.widgetService = widgetService;
@@ -61,27 +55,19 @@ public class RevContent {
         return new RevContentBuilder();
     }
 
-    public BoostService campaignsService() {
+    public BoostService boostService() {
         return boostService;
-    }
-
-    public BoostService boostsService() {
-        return boostService;
-    }
-
-    public BoostPerformanceService boostPerformanceService() {
-        return boostPerformanceService;
     }
 
     public RevContentAuthenticationService authenticationService() {
         return revContentAuthenticationService;
     }
 
-    public HelperService helpersService() {
+    public HelperService helperService() {
         return helperService;
     }
 
-    public ContentService contentsService() {
+    public ContentService contentService() {
         return contentService;
     }
 
@@ -103,7 +89,7 @@ public class RevContent {
         private static final long DEFAULT_KEEP_ALIVE_DURATION_MILLIS = 300_000L;
         private static final SerializationConfig DEFAULT_SERIALIZATION_CONFIG = new SerializationConfig();
 
-        private String baseUrl = DEFAULT_AUTH_BACKSTAGE_HOST;
+        private String baseUrl = DEFAULT_BACKSTAGE_HOST;
         private String authBaseUrl = DEFAULT_AUTH_BACKSTAGE_HOST;
         private String userAgent = DEFAULT_USER_AGENT;
         private long writeTimeoutMillis = 0L;
@@ -188,8 +174,6 @@ public class RevContent {
                             endpointsFactory.createAuthEndpoint(AuthenticationEndpoint.class)),
                     new BoostServiceImpl(performClientValidations,
                             endpointsFactory.createEndpoint(BoostEndpoint.class)),
-                    new BoostPerformanceServiceImpl(performClientValidations,
-                            endpointsFactory.createEndpoint(BoostPerformanceEndpoint.class)),
                     new HelperServiceImpl(performClientValidations,
                             endpointsFactory.createEndpoint(HelperEndpoint.class)),
                     new ContentServiceImpl(performClientValidations,

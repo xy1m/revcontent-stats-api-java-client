@@ -46,7 +46,7 @@ public class ContentServiceImplTest {
                 .brandName("Chase")
                 .contentType(EnumContentType.article)
                 .build();
-        ResultCreative<Content> result = revContent.contentsService().addContent(auth, BOOST_ID, payload);
+        ResultCreative<Content> result = revContent.contentService().addContent(auth, BOOST_ID, payload);
         System.out.println(objectMapper.writeValueAsString(result));
         Assert.assertNotNull(result);
     }
@@ -58,7 +58,7 @@ public class ContentServiceImplTest {
                 .id("4155513")
                 .enabled(EnumEnabled.on)
                 .build();
-        ResultsData<Content> result = revContent.contentsService().updateContent(auth, BOOST_ID, payload);
+        ResultsData<Content> result = revContent.contentService().updateContent(auth, BOOST_ID, payload);
         System.out.println(objectMapper.writeValueAsString(result));
         Assert.assertNotNull(result);
     }
@@ -66,7 +66,7 @@ public class ContentServiceImplTest {
     @Test
     @Ignore
     public void listContents() throws JsonProcessingException {
-        ResultsData<Content> result = revContent.contentsService().listContent(auth, Maps.newHashMap());
+        ResultsData<Content> result = revContent.contentService().listContents(auth, Maps.newHashMap());
         System.out.println(objectMapper.writeValueAsString(result));
         Assert.assertNotNull(result);
     }
@@ -74,7 +74,7 @@ public class ContentServiceImplTest {
     @Test
     @Ignore
     public void getContent() throws JsonProcessingException {
-        ResultsData<Content> result = revContent.contentsService().getContent(auth, BOOST_ID, Maps.newHashMap());
+        ResultsData<Content> result = revContent.contentService().getContent(auth, BOOST_ID, Maps.newHashMap());
         System.out.println(objectMapper.writeValueAsString(result));
         Assert.assertNotNull(result);
     }

@@ -6,6 +6,8 @@ import com.xy1m.exceptions.APIUnauthorizedException;
 import com.xy1m.model.ResultCampaign;
 import com.xy1m.model.ResultsData;
 import com.xy1m.model.boost.Boost;
+import com.xy1m.model.boost.BoostStats;
+import com.xy1m.model.boost.WidgetStats;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
@@ -41,6 +43,19 @@ public interface BoostEndpoint {
     @Headers("ContentAddRequest-Type: application/json")
     ResultsData<Boost> listBoosts(@Header("Authorization") String authToken,
                                   @QueryMap Map<String, String> filter)
+            throws APIUnauthorizedException, APIServerException, APIClientException;
+
+    @GET(Paths.BACKSTAGE_API_PATH_PREFIX + "/boosts/performance")
+    @Headers("ContentAddRequest-Type: application/json")
+    ResultsData<BoostStats> getBoostPerformance(@Header("Authorization") String authToken,
+                                                @QueryMap Map<String, String> filter)
+            throws APIUnauthorizedException, APIServerException, APIClientException;
+
+    @GET(Paths.BACKSTAGE_API_PATH_PREFIX + "/boosts/{boost_id}/widgets/stats")
+    @Headers("ContentAddRequest-Type: application/json")
+    ResultsData<WidgetStats> getWidgetStats(@Header("Authorization") String authToken,
+                                            @Path("boost_id") String boostId,
+                                            @QueryMap Map<String, String> filter)
             throws APIUnauthorizedException, APIServerException, APIClientException;
 
 }

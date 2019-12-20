@@ -31,7 +31,7 @@ public interface WidgetService {
      * @throws APIServerException
      * @throws APIClientException
      */
-    ResultsData<Widget> removeBlacklist(Authentication auth, String boostId, Widget payload)
+    ResultsData<Widget> deleteBlacklist(Authentication auth, String boostId, Widget payload)
             throws APIUnauthorizedException, APIServerException, APIClientException;
 
     /**
@@ -42,7 +42,7 @@ public interface WidgetService {
      * @throws APIServerException
      * @throws APIClientException
      */
-    ResultsData<Widget> listBlacklist(Authentication auth, String boostId)
+    ResultsData<Widget> listBlacklists(Authentication auth, String boostId)
             throws APIUnauthorizedException, APIServerException, APIClientException;
 
 }

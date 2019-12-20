@@ -8,6 +8,8 @@ import com.xy1m.model.ResultCampaign;
 import com.xy1m.model.ResultsData;
 import com.xy1m.model.auth.Authentication;
 import com.xy1m.model.boost.Boost;
+import com.xy1m.model.boost.BoostStats;
+import com.xy1m.model.boost.WidgetStats;
 
 import java.util.Map;
 
@@ -37,6 +39,9 @@ public class BoostServiceImpl implements BoostService {
     @Override
     public Boost updateBoost(Authentication auth, String boostId, Boost payload)
             throws APIUnauthorizedException, APIServerException, APIClientException {
+        if (performValidations) {
+            checkArgument(isNotBlank(payload.getId()), "ID is required");
+        }
         String accessToken = auth.getToken().getAccessTokenForHeader();
         return endpoint.updateBoost(accessToken, boostId, payload);
     }
@@ -57,5 +62,28 @@ public class BoostServiceImpl implements BoostService {
             throws APIUnauthorizedException, APIServerException, APIClientException {
         String accessToken = auth.getToken().getAccessTokenForHeader();
         return endpoint.listBoosts(accessToken, filter);
+    }
+
+    @Override
+    public ResultsData<BoostStats> getBoostStats(Authentication auth, Map<String, String> filter)
+            throws APIUnauthorizedException, APIServerException, APIClientException {
+        if (performValidations) {
+            checkArgument(filter.containsKey("boost_id"), "missing boost_id");
+            checkArgument(filter.containsKey("date_from"), "missing date_from, format yyyy-MM-dd");
+            checkArgument(filter.containsKey("date_to"), "missing date_to, format yyyy-MM-dd");
+        }
+        String accessToken = auth.getToken().getAccessTokenForHeader();
+        return endpoint.getBoostPerformance(accessToken, filter);
+    }
+
+    @Override
+    public ResultsData<WidgetStats> getWidgetStats(Authentication auth, String boostId, Map<String, String> filter)
+            throws APIUnauthorizedException, APIServerException, APIClientException {
+        if (performValidations) {
+            checkArgument(filter.containsKey("date_from"), "missing date_from, format yyyy-MM-dd");
+            checkArgument(filter.containsKey("date_to"), "missing date_to, format yyyy-MM-dd");
+        }
+        String accessToken = auth.getToken().getAccessTokenForHeader();
+        return endpoint.getWidgetStats(accessToken, boostId, filter);
     }
 }

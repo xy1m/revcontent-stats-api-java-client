@@ -25,24 +25,24 @@ public class WidgetServiceImpl implements WidgetService {
     public ResultsData<Widget> addBlacklist(Authentication auth, String boostId, Widget payload)
             throws APIUnauthorizedException, APIServerException, APIClientException {
         if (performValidations) {
-            checkArgument(Strings.isNotBlank(payload.getId()), "missing widget id");
+            checkArgument(Strings.isNotBlank(payload.getId()), "Widget ID is required");
         }
         String accessToken = auth.getToken().getAccessTokenForHeader();
         return endpoint.addWidget(accessToken, boostId, payload);
     }
 
     @Override
-    public ResultsData<Widget> removeBlacklist(Authentication auth, String boostId, Widget payload)
+    public ResultsData<Widget> deleteBlacklist(Authentication auth, String boostId, Widget payload)
             throws APIUnauthorizedException, APIServerException, APIClientException {
         if (performValidations) {
-            checkArgument(Strings.isNotBlank(payload.getId()), "missing widget id");
+            checkArgument(Strings.isNotBlank(payload.getId()), "Widget ID is required");
         }
         String accessToken = auth.getToken().getAccessTokenForHeader();
         return endpoint.deleteWidget(accessToken, boostId, payload);
     }
 
     @Override
-    public ResultsData<Widget> listBlacklist(Authentication auth, String boostId)
+    public ResultsData<Widget> listBlacklists(Authentication auth, String boostId)
             throws APIUnauthorizedException, APIServerException, APIClientException {
         String accessToken = auth.getToken().getAccessTokenForHeader();
         return endpoint.listWidgets(accessToken, boostId);

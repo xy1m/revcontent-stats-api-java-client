@@ -18,7 +18,7 @@ public interface ContentService {
     ResultsData<Content> updateContent(Authentication auth, String boostId, Content payload)
             throws APIUnauthorizedException, APIServerException, APIClientException;
 
-    ResultsData<Content> listContent(Authentication auth, Map<String, String> filter)
+    ResultsData<Content> listContents(Authentication auth, Map<String, String> filter)
             throws APIUnauthorizedException, APIServerException, APIClientException;
 
     ResultsData<Content> getContent(Authentication auth, String boostId, Map<String, String> filter)

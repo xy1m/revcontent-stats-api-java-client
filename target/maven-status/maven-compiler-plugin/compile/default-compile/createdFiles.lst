@@ -5,7 +5,6 @@ com/xy1m/internal/BoostEndpoint.class
 com/xy1m/internal/StringConverterFactory.class
 com/xy1m/model/auth/AuthenticationDetails.class
 com/xy1m/annotations/Required.class
-com/xy1m/services/BoostPerformanceService.class
 com/xy1m/services/BoostService.class
 com/xy1m/internal/config/SerializationConfig.class
 com/xy1m/services/HelperServiceImpl.class
@@ -21,6 +20,7 @@ com/xy1m/model/EnumEnabled.class
 com/xy1m/internal/Paths.class
 com/xy1m/internal/TargetEndpoint.class
 com/xy1m/services/ContentService.class
+com/xy1m/model/boost/BoostStats.class
 com/xy1m/services/WidgetService.class
 com/xy1m/services/RevContentAuthenticationService.class
 com/xy1m/internal/factories/RevContentEndpointsRetrofitFactory.class
@@ -33,10 +33,10 @@ com/xy1m/model/auth/Token.class
 com/xy1m/model/EnumStatus.class
 com/xy1m/internal/SynchronousCallAdapterFactory$1.class
 com/xy1m/model/resource/Resource.class
+com/xy1m/model/boost/WidgetStats.class
 com/xy1m/services/TargetService.class
 com/xy1m/services/RevContentAuthenticationServiceImpl.class
 com/xy1m/annotations/ReadOnly.class
-com/xy1m/services/BoostPerformanceServiceImpl.class
 com/xy1m/model/EnumOptimize.class
 com/xy1m/model/boost/Pixel.class
 com/xy1m/model/auth/ClientCredentialAuthenticationDetails.class
@@ -44,7 +44,6 @@ com/xy1m/model/targeting/WidgetTarget.class
 com/xy1m/model/targeting/BoostTarget.class
 com/xy1m/internal/interceptors/CommunicationInterceptor.class
 com/xy1m/services/TargetServiceImpl.class
-com/xy1m/internal/BoostPerformanceEndpoint.class
 com/xy1m/exceptions/APIClientException.class
 com/xy1m/services/ContentServiceImpl.class
 com/xy1m/model/boost/Boost.class
@@ -61,7 +60,6 @@ com/xy1m/model/auth/GrantType.class
 com/xy1m/model/widget/optimizer/Widget.class
 com/xy1m/internal/SynchronousCallAdapterFactory.class
 com/xy1m/model/content/Content$APIRequestAddBuilder.class
-com/xy1m/model/boost/BoostPerformance.class
 com/xy1m/internal/WidgetEndpoint.class
 com/xy1m/model/conversion/Conversion.class
 com/xy1m/model/content/Content.class

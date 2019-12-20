@@ -35,7 +35,7 @@ public class WidgetServiceImplTest {
     @Test
     @Ignore
     public void listBlacklist() throws JsonProcessingException {
-        ResultsData<Widget> result = revContent.widgetService().listBlacklist(auth, BOOST_ID);
+        ResultsData<Widget> result = revContent.widgetService().listBlacklists(auth, BOOST_ID);
         System.out.println(objectMapper.writeValueAsString(result));
     }
 
@@ -53,7 +53,7 @@ public class WidgetServiceImplTest {
     public void deleteBlacklist() throws JsonProcessingException {
         Widget payload = new Widget();
         payload.setId("100,101");
-        ResultsData<Widget> result = revContent.widgetService().removeBlacklist(auth, BOOST_ID, payload);
+        ResultsData<Widget> result = revContent.widgetService().deleteBlacklist(auth, BOOST_ID, payload);
         System.out.println(objectMapper.writeValueAsString(result));
     }
 }

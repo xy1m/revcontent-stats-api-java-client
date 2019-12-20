@@ -8,7 +8,7 @@ import java.util.Objects;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class BoostPerformance {
+public class BoostStats {
     private String date;
     private String impressions;
     private String viewableImpressions;
@@ -104,8 +104,8 @@ public class BoostPerformance {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof BoostPerformance)) return false;
-        BoostPerformance that = (BoostPerformance) o;
+        if (!(o instanceof BoostStats)) return false;
+        BoostStats that = (BoostStats) o;
         return Objects.equals(getDate(), that.getDate()) &&
                 Objects.equals(getImpressions(), that.getImpressions()) &&
                 Objects.equals(getViewableImpressions(), that.getViewableImpressions()) &&
@@ -125,7 +125,7 @@ public class BoostPerformance {
 
     @Override
     public String toString() {
-        final StringBuffer sb = new StringBuffer("BoostPerformance{");
+        final StringBuffer sb = new StringBuffer("BoostStats{");
         sb.append("date='").append(date).append('\'');
         sb.append(", impressions='").append(impressions).append('\'');
         sb.append(", viewableImpressions='").append(viewableImpressions).append('\'');
