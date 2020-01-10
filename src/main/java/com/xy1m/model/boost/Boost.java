@@ -529,7 +529,7 @@ class Boost {
             return this;
         }
 
-        public APIRequestAddBuilder scountryCodes(List<String> countryCodes) {
+        public APIRequestAddBuilder countryCodes(List<String> countryCodes) {
             this.countryCodes = countryCodes;
             return this;
         }

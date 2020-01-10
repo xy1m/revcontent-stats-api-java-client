@@ -39,9 +39,6 @@ public class BoostServiceImpl implements BoostService {
     @Override
     public Boost updateBoost(Authentication auth, String boostId, Boost payload)
             throws APIUnauthorizedException, APIServerException, APIClientException {
-        if (performValidations) {
-            checkArgument(isNotBlank(payload.getId()), "ID is required");
-        }
         String accessToken = auth.getToken().getAccessTokenForHeader();
         return endpoint.updateBoost(accessToken, boostId, payload);
     }
