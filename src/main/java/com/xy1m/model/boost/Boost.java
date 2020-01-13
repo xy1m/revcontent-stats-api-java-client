@@ -32,7 +32,7 @@ class Boost {
     private String endDate;
     private String targetType;
     private String targetTargeting;
-    private String targetCodes;
+    private List<String> targetCodes;
     private String countryTargeting;
     private List<String> countryCodes;
     private String regionTargeting;
@@ -149,11 +149,11 @@ class Boost {
         this.targetTargeting = targetTargeting;
     }
 
-    public String getTargetCodes() {
+    public List<String> getTargetCodes() {
         return targetCodes;
     }
 
-    public void setTargetCodes(String targetCodes) {
+    public void setTargetCodes(List<String> targetCodes) {
         this.targetCodes = targetCodes;
     }
 
@@ -393,7 +393,7 @@ class Boost {
         final StringBuffer sb = new StringBuffer("Boost{");
         sb.append("id='").append(id).append('\'');
         sb.append(", name='").append(name).append('\'');
-        sb.append(", bidAmount=").append(bidAmount);
+        sb.append(", bidAmount='").append(bidAmount).append('\'');
         sb.append(", budget='").append(budget).append('\'');
         sb.append(", pacing=").append(pacing);
         sb.append(", optimize=").append(optimize);
@@ -402,7 +402,7 @@ class Boost {
         sb.append(", endDate='").append(endDate).append('\'');
         sb.append(", targetType='").append(targetType).append('\'');
         sb.append(", targetTargeting='").append(targetTargeting).append('\'');
-        sb.append(", targetCodes='").append(targetCodes).append('\'');
+        sb.append(", targetCodes=").append(targetCodes);
         sb.append(", countryTargeting='").append(countryTargeting).append('\'');
         sb.append(", countryCodes=").append(countryCodes);
         sb.append(", regionTargeting='").append(regionTargeting).append('\'');
@@ -449,7 +449,7 @@ class Boost {
         private String targetType;
         // default all
         private String targetTargeting;
-        private String targetCodes;
+        private List<String> targetCodes;
         // default all
         private String countryTargeting;
         private List<String> countryCodes;
@@ -519,7 +519,7 @@ class Boost {
             return this;
         }
 
-        public APIRequestAddBuilder targetCodes(String targetCodes) {
+        public APIRequestAddBuilder targetCodes(List<String> targetCodes) {
             this.targetCodes = targetCodes;
             return this;
         }
