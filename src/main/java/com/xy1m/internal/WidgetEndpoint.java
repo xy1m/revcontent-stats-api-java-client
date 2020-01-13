@@ -31,7 +31,7 @@ public interface WidgetEndpoint {
      * @return succeed response { "success": true }
      * @throws APIException
      */
-    @POST(Paths.BACKSTAGE_API_PATH_PREFIX + "/boosts/{boost_id}/targets/blacklist/widgets/delete")
+    @POST(Paths.BACKSTAGE_API_PATH_PREFIX + "/boosts/{boost_id}/targets/blacklist/widgets/remove")
     @Headers("ContentAddRequest-Type: application/json")
     ResultsData<Widget> deleteWidget(@Header("Authorization") String authToken,
                                      @Path("boost_id") String boostId,
