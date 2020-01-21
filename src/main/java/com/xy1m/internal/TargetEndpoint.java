@@ -59,7 +59,7 @@ public interface TargetEndpoint {
      * @return succeed response { "success": true }
      * @throws APIException
      */
-    @POST(Paths.BACKSTAGE_API_PATH_PREFIX + "/boosts/{boost_id}/targets")
+    @POST(Paths.BACKSTAGE_API_PATH_PREFIX + "/boosts/{boost_id}/widgets")
     @Headers("ContentAddRequest-Type: application/json")
     ResultsData<WidgetTarget> updateWidgetTarget(@Header("Authorization") String authToken,
                                                  @Path("boost_id") String boostId,
