@@ -27,6 +27,7 @@ public class WidgetTarget {
     @JsonProperty("return")
     private String valueReturn;
     private String profit;
+    private Boolean reset;
 
     public String getId() {
         return id;
@@ -156,6 +157,14 @@ public class WidgetTarget {
         this.profit = profit;
     }
 
+    public Boolean getReset() {
+        return reset;
+    }
+
+    public void setReset(Boolean reset) {
+        this.reset = reset;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -176,12 +185,13 @@ public class WidgetTarget {
                 Objects.equals(getPvs(), that.getPvs()) &&
                 Objects.equals(getCost(), that.getCost()) &&
                 Objects.equals(getValueReturn(), that.getValueReturn()) &&
-                Objects.equals(getProfit(), that.getProfit());
+                Objects.equals(getProfit(), that.getProfit()) &&
+                Objects.equals(getReset(), that.getReset());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId(), getWidgetId(), getDomain(), getEnabled(), getBidType(), getBid(), getAvgCpc(), getImpressions(), getViewableImpressions(), getClicks(), getConversions(), getCtr(), getPvs(), getCost(), getValueReturn(), getProfit());
+        return Objects.hash(getId(), getWidgetId(), getDomain(), getEnabled(), getBidType(), getBid(), getAvgCpc(), getImpressions(), getViewableImpressions(), getClicks(), getConversions(), getCtr(), getPvs(), getCost(), getValueReturn(), getProfit(), getReset());
     }
 
     @Override
@@ -203,6 +213,7 @@ public class WidgetTarget {
         sb.append(", cost='").append(cost).append('\'');
         sb.append(", valueReturn='").append(valueReturn).append('\'');
         sb.append(", profit='").append(profit).append('\'');
+        sb.append(", reset='").append(reset).append('\'');
         sb.append('}');
         return sb.toString();
     }
