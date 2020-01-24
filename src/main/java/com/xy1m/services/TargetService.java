@@ -8,6 +8,7 @@ import com.xy1m.model.auth.Authentication;
 import com.xy1m.model.targeting.BoostTarget;
 import com.xy1m.model.targeting.WidgetTarget;
 
+import java.util.List;
 import java.util.Map;
 
 
@@ -20,6 +21,9 @@ public interface TargetService {
             throws APIUnauthorizedException, APIServerException, APIClientException;
 
     ResultsData<WidgetTarget> updateWidgetTarget(Authentication auth, String boostId, WidgetTarget payload)
+            throws APIUnauthorizedException, APIServerException, APIClientException;
+
+    ResultsData<WidgetTarget> updateWidgetTarget(Authentication auth, String boostId, List<WidgetTarget> payload)
             throws APIUnauthorizedException, APIServerException, APIClientException;
 
     ResultsData<WidgetTarget> listWidgetTargets(Authentication auth, String boostId, Map<String, String> filter)

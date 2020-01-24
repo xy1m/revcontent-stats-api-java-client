@@ -12,6 +12,7 @@ import retrofit2.http.POST;
 import retrofit2.http.Path;
 import retrofit2.http.QueryMap;
 
+import java.util.List;
 import java.util.Map;
 
 public interface TargetEndpoint {
@@ -63,7 +64,7 @@ public interface TargetEndpoint {
     @Headers("ContentAddRequest-Type: application/json")
     ResultsData<WidgetTarget> updateWidgetTarget(@Header("Authorization") String authToken,
                                                  @Path("boost_id") String boostId,
-                                                 @Body WidgetTarget payload) throws APIException;
+                                                 @Body List<WidgetTarget> payload) throws APIException;
 
 
 }
