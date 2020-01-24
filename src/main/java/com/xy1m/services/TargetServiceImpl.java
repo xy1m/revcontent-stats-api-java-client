@@ -9,6 +9,8 @@ import com.xy1m.model.auth.Authentication;
 import com.xy1m.model.targeting.BoostTarget;
 import com.xy1m.model.targeting.WidgetTarget;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 public class TargetServiceImpl implements TargetService {
@@ -36,6 +38,13 @@ public class TargetServiceImpl implements TargetService {
 
     @Override
     public ResultsData<WidgetTarget> updateWidgetTarget(Authentication auth, String boostId, WidgetTarget payload)
+            throws APIUnauthorizedException, APIServerException, APIClientException {
+        List<WidgetTarget> widgetTargets = new ArrayList<>();
+        return updateWidgetTarget(auth, boostId, widgetTargets);
+    }
+
+    @Override
+    public ResultsData<WidgetTarget> updateWidgetTarget(Authentication auth, String boostId, List<WidgetTarget> payload)
             throws APIUnauthorizedException, APIServerException, APIClientException {
         String accessToken = auth.getToken().getAccessTokenForHeader();
         return endpoint.updateWidgetTarget(accessToken, boostId, payload);
