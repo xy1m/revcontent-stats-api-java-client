@@ -425,6 +425,8 @@ class Boost {
         sb.append(", countryCodes=").append(countryCodes);
         sb.append(", regionTargeting='").append(regionTargeting).append('\'');
         sb.append(", regionCodes=").append(regionCodes);
+        sb.append(", zipcodeTargeting='").append(zipcodeTargeting).append('\'');
+        sb.append(", zipcodeCodes=").append(zipcodeCodes);
         sb.append(", deviceTargeting=").append(deviceTargeting);
         sb.append(", languageTargeting=").append(languageTargeting);
         sb.append(", trackingCode='").append(trackingCode).append('\'');
@@ -607,6 +609,8 @@ class Boost {
             boost.countryCodes = this.countryCodes;
             boost.regionTargeting = this.regionTargeting;
             boost.regionCodes = this.regionCodes;
+            boost.zipcodeTargeting = this.zipcodeTargeting;
+            boost.zipcodeCodes = this.zipcodeCodes;
             boost.deviceTargeting = this.deviceTargeting;
             boost.languageTargeting = this.languageTargeting;
             boost.trackingCode = this.trackingCode;
