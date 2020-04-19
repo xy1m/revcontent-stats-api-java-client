@@ -38,7 +38,7 @@ class Boost {
     private String regionTargeting;
     private List<String> regionCodes;
     private String zipcodeTargeting;
-    private List<String> zipCodes;
+    private List<String> zipcodeCodes;
     private List<String> deviceTargeting;
     private List<String> languageTargeting;
     private String trackingCode;
@@ -199,12 +199,12 @@ class Boost {
         this.zipcodeTargeting = zipcodeTargeting;
     }
 
-    public List<String> getZipCodes() {
-        return zipCodes;
+    public List<String> getZipcodeCodes() {
+        return zipcodeCodes;
     }
 
-    public void setZipCodes(List<String> zipCodes) {
-        this.zipCodes = zipCodes;
+    public void setZipcodeCodes(List<String> zipcodeCodes) {
+        this.zipcodeCodes = zipcodeCodes;
     }
 
     public List<String> getDeviceTargeting() {
@@ -476,7 +476,7 @@ class Boost {
         private List<String> regionCodes;
         // default all
         private String zipcodeTargeting;
-        private List<String> zipCodes;
+        private List<String> zipcodeCodes;
         // default all
         private List<String> deviceTargeting;
         // default all
@@ -570,8 +570,8 @@ class Boost {
             return this;
         }
 
-        public APIRequestAddBuilder zipCodes(List<String> zipCodes) {
-            this.zipCodes = zipCodes;
+        public APIRequestAddBuilder zipcodeCodes(List<String> zipcodeCodes) {
+            this.zipcodeCodes = zipcodeCodes;
             return this;
         }
 
