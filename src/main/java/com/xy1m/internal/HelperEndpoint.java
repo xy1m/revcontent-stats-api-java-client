@@ -18,6 +18,10 @@ public interface HelperEndpoint {
     @Headers("ContentAddRequest-Type: application/json")
     ResultsData<Resource> getTopicargets(@Header("Authorization") String authToken) throws APIException;
 
+    @GET(Paths.BACKSTAGE_API_PATH_PREFIX + "/boosts/traffic_types")
+    @Headers("ContentAddRequest-Type: application/json")
+    ResultsData<Resource> getTrafficTypes(@Header("Authorization") String authToken) throws APIException;
+
     @GET(Paths.BACKSTAGE_API_PATH_PREFIX + "/countries")
     @Headers("ContentAddRequest-Type: application/json")
     ResultsData<Resource> getCountries(@Header("Authorization") String authToken) throws APIException;

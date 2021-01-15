@@ -1,6 +1,7 @@
 package com.xy1m.services;
 
 import com.xy1m.exceptions.APIClientException;
+import com.xy1m.exceptions.APIException;
 import com.xy1m.exceptions.APIServerException;
 import com.xy1m.exceptions.APIUnauthorizedException;
 import com.xy1m.internal.HelperEndpoint;
@@ -66,5 +67,11 @@ public class HelperServiceImpl implements HelperService {
             throws APIUnauthorizedException, APIServerException, APIClientException {
         String accessToken = auth.getToken().getAccessTokenForHeader();
         return endpoint.getRegions(accessToken, country);
+    }
+
+    @Override
+    public ResultsData<Resource> getTrafficTypes(Authentication auth) throws APIException {
+        String accessToken = auth.getToken().getAccessTokenForHeader();
+        return endpoint.getTrafficTypes(accessToken);
     }
 }

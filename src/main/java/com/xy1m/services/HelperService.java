@@ -1,12 +1,14 @@
 package com.xy1m.services;
 
 import com.xy1m.exceptions.APIClientException;
+import com.xy1m.exceptions.APIException;
 import com.xy1m.exceptions.APIServerException;
 import com.xy1m.exceptions.APIUnauthorizedException;
 import com.xy1m.model.ResultsData;
 import com.xy1m.model.auth.Authentication;
 import com.xy1m.model.resource.Interest;
 import com.xy1m.model.resource.Resource;
+import retrofit2.http.Header;
 
 
 public interface HelperService {
@@ -30,4 +32,6 @@ public interface HelperService {
 
     ResultsData<Resource> getRegions(Authentication auth, String country)
             throws APIUnauthorizedException, APIServerException, APIClientException;
+
+    ResultsData<Resource> getTrafficTypes(Authentication auth) throws APIException;
 }

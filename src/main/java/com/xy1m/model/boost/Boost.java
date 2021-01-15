@@ -53,6 +53,7 @@ class Boost {
     private String endDateTime;
     private List<String> mobileTraffic;
     private List<String> languageTraffic;
+    private List<String> trafficTypes;
     private String utmCodes;
     // updateContent boost status
     private EnumEnabled enabled;
@@ -303,6 +304,10 @@ class Boost {
         this.languageTraffic = languageTraffic;
     }
 
+    public List<String> getTrafficTypes() { return trafficTypes; }
+
+    public void setTrafficTypes(List<String> trafficTypes) { this.trafficTypes = trafficTypes; }
+
     public String getUtmCodes() {
         return utmCodes;
     }
@@ -392,6 +397,7 @@ class Boost {
                 Objects.equals(getEndDateTime(), boost.getEndDateTime()) &&
                 Objects.equals(getMobileTraffic(), boost.getMobileTraffic()) &&
                 Objects.equals(getLanguageTraffic(), boost.getLanguageTraffic()) &&
+                Objects.equals(getTrafficTypes(), boost.getTrafficTypes()) &&
                 Objects.equals(getUtmCodes(), boost.getUtmCodes()) &&
                 getEnabled() == boost.getEnabled() &&
                 getStatus() == boost.getStatus() &&
@@ -403,7 +409,7 @@ class Boost {
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId(), getName(), getBidAmount(), getBudget(), getPacing(), getOptimize(), getConversion(), getStartDate(), getEndDate(), getTargetType(), getTargetTargeting(), getTargetCodes(), getCountryTargeting(), getCountryCodes(), getRegionTargeting(), getRegionCodes(), getDeviceTargeting(), getLanguageTargeting(), getTrackingCode(), getPixels(), getDefaultBid(), getBudgetType(), getBudgetAmount(), getStartDateTime(), getHasEndDate(), getEndDateTime(), getMobileTraffic(), getLanguageTraffic(), getUtmCodes(), getEnabled(), getStatus(), getMinBid(), getMaxBid(), getCost(), getCtr());
+        return Objects.hash(getId(), getName(), getBidAmount(), getBudget(), getPacing(), getOptimize(), getConversion(), getStartDate(), getEndDate(), getTargetType(), getTargetTargeting(), getTargetCodes(), getCountryTargeting(), getCountryCodes(), getRegionTargeting(), getRegionCodes(), getDeviceTargeting(), getLanguageTargeting(), getTrackingCode(), getPixels(), getDefaultBid(), getBudgetType(), getBudgetAmount(), getStartDateTime(), getHasEndDate(), getEndDateTime(), getMobileTraffic(), getLanguageTraffic(), getTrafficTypes(), getUtmCodes(), getEnabled(), getStatus(), getMinBid(), getMaxBid(), getCost(), getCtr());
     }
 
     @Override
@@ -439,6 +445,7 @@ class Boost {
         sb.append(", endDateTime='").append(endDateTime).append('\'');
         sb.append(", mobileTraffic=").append(mobileTraffic);
         sb.append(", languageTraffic=").append(languageTraffic);
+        sb.append(", trafficTypes=").append(trafficTypes);
         sb.append(", utmCodes='").append(utmCodes).append('\'');
         sb.append(", enabled=").append(enabled);
         sb.append(", status=").append(status);
@@ -483,6 +490,7 @@ class Boost {
         private List<String> deviceTargeting;
         // default all
         private List<String> languageTargeting;
+        private List<String> trafficTypes;
         private String trackingCode;
 
         private APIRequestAddBuilder() {
@@ -587,6 +595,11 @@ class Boost {
             return this;
         }
 
+        public APIRequestAddBuilder trafficTypes(List<String> trafficTypes) {
+            this.trafficTypes = trafficTypes;
+            return this;
+        }
+
         public APIRequestAddBuilder trackingCode(String trackingCode) {
             this.trackingCode = trackingCode;
             return this;
@@ -613,6 +626,7 @@ class Boost {
             boost.zipcodeCodes = this.zipcodeCodes;
             boost.deviceTargeting = this.deviceTargeting;
             boost.languageTargeting = this.languageTargeting;
+            boost.trafficTypes = this.trafficTypes;
             boost.trackingCode = this.trackingCode;
             return boost;
         }
@@ -637,6 +651,7 @@ class Boost {
         private List<String> regionCodes;
         private List<String> mobileTraffic;
         private List<String> languageTraffic;
+        private List<String> trafficTypes;
         private String utmCodes;
 
         private APIRequestUpdateBuilder() {
@@ -736,6 +751,11 @@ class Boost {
             return this;
         }
 
+        public APIRequestUpdateBuilder trafficTypes(List<String> trafficTypes) {
+            this.trafficTypes = trafficTypes;
+            return this;
+        }
+
         public APIRequestUpdateBuilder utmCodes(String utmCodes) {
             this.utmCodes = utmCodes;
             return this;
@@ -761,6 +781,7 @@ class Boost {
             boost.regionCodes = this.regionCodes;
             boost.mobileTraffic = this.mobileTraffic;
             boost.languageTargeting = this.languageTraffic;
+            boost.trafficTypes = this.trafficTypes;
             boost.utmCodes = this.utmCodes;
             return boost;
         }

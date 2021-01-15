@@ -88,4 +88,12 @@ public class HelperServiceImplTest {
         System.out.println(objectMapper.writeValueAsString(result));
         Assert.assertNotNull(result);
     }
+
+    @Test
+    @Ignore
+    public void getTrafficTypes() throws JsonProcessingException {
+        ResultsData<Resource> result = revContent.helperService().getTrafficTypes(auth);
+        System.out.println(objectMapper.writeValueAsString(result));
+        Assert.assertNotNull(result);
+    }
 }
