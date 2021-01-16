@@ -58,4 +58,9 @@ public interface BoostEndpoint {
                                             @QueryMap Map<String, String> filter)
             throws APIUnauthorizedException, APIServerException, APIClientException;
 
+    @POST(Paths.BACKSTAGE_API_PATH_PREFIX + "/boosts/{boost_id}/archive")
+    @Headers("ContentAddRequest-Type: application/json")
+    Boost archiveBoost(@Header("Authorization") String authToken,
+                       @Path("boost_id") String boostId)
+            throws APIUnauthorizedException, APIServerException, APIClientException;
 }

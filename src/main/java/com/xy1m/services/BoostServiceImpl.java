@@ -44,6 +44,13 @@ public class BoostServiceImpl implements BoostService {
     }
 
     @Override
+    public Boost archiveBoost(Authentication auth, String boostId)
+            throws APIUnauthorizedException, APIServerException, APIClientException {
+        String accessToken = auth.getToken().getAccessTokenForHeader();
+        return endpoint.archiveBoost(accessToken, boostId);
+    }
+
+    @Override
     public Boost updateBoostStatus(Authentication auth, Boost payload)
             throws APIUnauthorizedException, APIServerException, APIClientException {
         if (performValidations) {

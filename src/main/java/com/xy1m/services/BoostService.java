@@ -23,6 +23,9 @@ public interface BoostService {
     Boost updateBoostStatus(Authentication auth, Boost payload)
             throws APIUnauthorizedException, APIServerException, APIClientException;
 
+    Boost archiveBoost(Authentication auth, String boostId)
+            throws APIUnauthorizedException, APIServerException, APIClientException;
+
     ResultsData<Boost> listBoosts(Authentication auth, Map<String, String> filter)
             throws APIUnauthorizedException, APIServerException, APIClientException;
 

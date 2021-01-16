@@ -17,6 +17,7 @@ class Boost {
     // create
     private String id;
     private String name;
+    private List<String> trafficTypes;
     // default 0.5
     private String bidAmount;
     // default unlimited
@@ -53,7 +54,6 @@ class Boost {
     private String endDateTime;
     private List<String> mobileTraffic;
     private List<String> languageTraffic;
-    private List<String> trafficTypes;
     private String utmCodes;
     // updateContent boost status
     private EnumEnabled enabled;
@@ -224,6 +224,15 @@ class Boost {
         this.languageTargeting = languageTargeting;
     }
 
+    public List<String> getTrafficTypes() {
+        return trafficTypes;
+    }
+
+    public Boost trafficTypes(List<String> trafficTypes) {
+        this.trafficTypes = trafficTypes;
+        return this;
+    }
+
     public String getTrackingCode() {
         return trackingCode;
     }
@@ -303,10 +312,6 @@ class Boost {
     public void setLanguageTraffic(List<String> languageTraffic) {
         this.languageTraffic = languageTraffic;
     }
-
-    public List<String> getTrafficTypes() { return trafficTypes; }
-
-    public void setTrafficTypes(List<String> trafficTypes) { this.trafficTypes = trafficTypes; }
 
     public String getUtmCodes() {
         return utmCodes;
@@ -397,7 +402,6 @@ class Boost {
                 Objects.equals(getEndDateTime(), boost.getEndDateTime()) &&
                 Objects.equals(getMobileTraffic(), boost.getMobileTraffic()) &&
                 Objects.equals(getLanguageTraffic(), boost.getLanguageTraffic()) &&
-                Objects.equals(getTrafficTypes(), boost.getTrafficTypes()) &&
                 Objects.equals(getUtmCodes(), boost.getUtmCodes()) &&
                 getEnabled() == boost.getEnabled() &&
                 getStatus() == boost.getStatus() &&
@@ -409,7 +413,7 @@ class Boost {
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId(), getName(), getBidAmount(), getBudget(), getPacing(), getOptimize(), getConversion(), getStartDate(), getEndDate(), getTargetType(), getTargetTargeting(), getTargetCodes(), getCountryTargeting(), getCountryCodes(), getRegionTargeting(), getRegionCodes(), getDeviceTargeting(), getLanguageTargeting(), getTrackingCode(), getPixels(), getDefaultBid(), getBudgetType(), getBudgetAmount(), getStartDateTime(), getHasEndDate(), getEndDateTime(), getMobileTraffic(), getLanguageTraffic(), getTrafficTypes(), getUtmCodes(), getEnabled(), getStatus(), getMinBid(), getMaxBid(), getCost(), getCtr());
+        return Objects.hash(getId(), getName(), getBidAmount(), getBudget(), getPacing(), getOptimize(), getConversion(), getStartDate(), getEndDate(), getTargetType(), getTargetTargeting(), getTargetCodes(), getCountryTargeting(), getCountryCodes(), getRegionTargeting(), getRegionCodes(), getDeviceTargeting(), getLanguageTargeting(), getTrackingCode(), getPixels(), getDefaultBid(), getBudgetType(), getBudgetAmount(), getStartDateTime(), getHasEndDate(), getEndDateTime(), getMobileTraffic(), getLanguageTraffic(), getUtmCodes(), getEnabled(), getStatus(), getMinBid(), getMaxBid(), getCost(), getCtr());
     }
 
     @Override
@@ -445,7 +449,6 @@ class Boost {
         sb.append(", endDateTime='").append(endDateTime).append('\'');
         sb.append(", mobileTraffic=").append(mobileTraffic);
         sb.append(", languageTraffic=").append(languageTraffic);
-        sb.append(", trafficTypes=").append(trafficTypes);
         sb.append(", utmCodes='").append(utmCodes).append('\'');
         sb.append(", enabled=").append(enabled);
         sb.append(", status=").append(status);
@@ -458,13 +461,18 @@ class Boost {
     }
 
     public static class APIRequestAddBuilder {
+        //Required
         private String name;
+        //Required
+        private List<String> trafficTypes;
         // default 0.5
         private String bidAmount;
         // default unlimited
         private String budget;
         // If budget is set to 'unlimited', pacing will default to 'off'. Otherwise, default is 'on'.
         private EnumEnabled pacing;
+        //Campaign Scheduling Hours on
+        private int[] schedule;
         // default cpc
         private EnumOptimize optimize;
         private List<Conversion> conversion;
@@ -472,11 +480,12 @@ class Boost {
         private String startDate;
         // default never
         private String endDate;
-        // default tag
-        private String targetType;
-        // default all
-        private String targetTargeting;
-        private List<String> targetCodes;
+        // default tag removed
+        // private String targetType;
+        // default all removed
+        // private String targetTargeting;
+        // removed
+        // private List<String> targetCodes;
         // default all
         private String countryTargeting;
         private List<String> countryCodes;
@@ -484,14 +493,19 @@ class Boost {
         private String regionTargeting;
         private List<String> regionCodes;
         // default all
-        private String zipcodeTargeting;
-        private List<String> zipcodeCodes;
-        // default all
         private List<String> deviceTargeting;
         // default all
         private List<String> languageTargeting;
-        private List<String> trafficTypes;
+        // default all
+        private List<String> browser_targeting;
+        // default all
+        private String dmaTargeting;
+        private List<String> dmaCodes;
+        // default all
+        private String zipcodeTargeting;
+        private List<String> zipcodeCodes;
         private String trackingCode;
+        private String pixelUrl;
 
         private APIRequestAddBuilder() {
         }
@@ -537,21 +551,6 @@ class Boost {
 
         public APIRequestAddBuilder endDate(String endDate) {
             this.endDate = endDate;
-            return this;
-        }
-
-        public APIRequestAddBuilder targetType(String targetType) {
-            this.targetType = targetType;
-            return this;
-        }
-
-        public APIRequestAddBuilder targetTargeting(String targetTargeting) {
-            this.targetTargeting = targetTargeting;
-            return this;
-        }
-
-        public APIRequestAddBuilder targetCodes(List<String> targetCodes) {
-            this.targetCodes = targetCodes;
             return this;
         }
 
@@ -615,9 +614,6 @@ class Boost {
             boost.conversion = this.conversion;
             boost.startDate = this.startDate;
             boost.endDate = this.endDate;
-            boost.targetType = this.targetType;
-            boost.targetTargeting = this.targetTargeting;
-            boost.targetCodes = this.targetCodes;
             boost.countryTargeting = this.countryTargeting;
             boost.countryCodes = this.countryCodes;
             boost.regionTargeting = this.regionTargeting;
@@ -626,8 +622,8 @@ class Boost {
             boost.zipcodeCodes = this.zipcodeCodes;
             boost.deviceTargeting = this.deviceTargeting;
             boost.languageTargeting = this.languageTargeting;
-            boost.trafficTypes = this.trafficTypes;
             boost.trackingCode = this.trackingCode;
+            boost.trafficTypes = this.trafficTypes;
             return boost;
         }
     }
@@ -781,7 +777,6 @@ class Boost {
             boost.regionCodes = this.regionCodes;
             boost.mobileTraffic = this.mobileTraffic;
             boost.languageTargeting = this.languageTraffic;
-            boost.trafficTypes = this.trafficTypes;
             boost.utmCodes = this.utmCodes;
             return boost;
         }
