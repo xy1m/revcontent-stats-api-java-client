@@ -15,9 +15,9 @@ import static com.google.common.base.Preconditions.checkArgument;
 import static org.apache.logging.log4j.util.Strings.isNotBlank;
 
 public class ContentServiceImpl implements ContentService {
-    private static long MAX_LENGTH_TARGET_URL = 255;
-    private static long MAX_LENGTH_HEADLINE = 80;
-    private static long MAX_LENGTH_BRAND_NAME = 30;
+
+    private static final long MAX_LENGTH_HEADLINE = 80;
+    private static final long MAX_LENGTH_BRAND_NAME = 30;
     private final Boolean performValidations;
     private final ContentEndpoint endpoint;
 
@@ -40,8 +40,6 @@ public class ContentServiceImpl implements ContentService {
             checkArgument(isNotBlank(headLine), "Headline is required");
             checkArgument(isNotBlank(brandName), "BrandName is required");
 
-            checkArgument(targetUrl.length() <= MAX_LENGTH_TARGET_URL,
-                    "Target url must be less than " + MAX_LENGTH_TARGET_URL);
             checkArgument(headLine.length() <= MAX_LENGTH_HEADLINE,
                     "Headline must be less than " + MAX_LENGTH_HEADLINE);
             checkArgument(brandName.length() <= MAX_LENGTH_BRAND_NAME,
