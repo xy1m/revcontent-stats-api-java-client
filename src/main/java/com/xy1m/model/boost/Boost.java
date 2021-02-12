@@ -63,6 +63,7 @@ class Boost {
     private String maxBid;
     private String cost;
     private String ctr;
+    private String pixelUrl;
 
     public String getId() {
         return id;
@@ -369,6 +370,14 @@ class Boost {
         this.ctr = ctr;
     }
 
+    public String getPixelUrl() {
+        return pixelUrl;
+    }
+
+    public void setPixelUrl(String pixelUrl) {
+        this.pixelUrl = pixelUrl;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -408,12 +417,13 @@ class Boost {
                 Objects.equals(getMinBid(), boost.getMinBid()) &&
                 Objects.equals(getMaxBid(), boost.getMaxBid()) &&
                 Objects.equals(getCost(), boost.getCost()) &&
-                Objects.equals(getCtr(), boost.getCtr());
+                Objects.equals(getCtr(), boost.getCtr()) &&
+                Objects.equals(getPixelUrl(), boost.getPixelUrl());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId(), getName(), getBidAmount(), getBudget(), getPacing(), getOptimize(), getConversion(), getStartDate(), getEndDate(), getTargetType(), getTargetTargeting(), getTargetCodes(), getCountryTargeting(), getCountryCodes(), getRegionTargeting(), getRegionCodes(), getDeviceTargeting(), getLanguageTargeting(), getTrackingCode(), getPixels(), getDefaultBid(), getBudgetType(), getBudgetAmount(), getStartDateTime(), getHasEndDate(), getEndDateTime(), getMobileTraffic(), getLanguageTraffic(), getUtmCodes(), getEnabled(), getStatus(), getMinBid(), getMaxBid(), getCost(), getCtr());
+        return Objects.hash(getId(), getName(), getBidAmount(), getBudget(), getPacing(), getOptimize(), getConversion(), getStartDate(), getEndDate(), getTargetType(), getTargetTargeting(), getTargetCodes(), getCountryTargeting(), getCountryCodes(), getRegionTargeting(), getRegionCodes(), getDeviceTargeting(), getLanguageTargeting(), getTrackingCode(), getPixels(), getDefaultBid(), getBudgetType(), getBudgetAmount(), getStartDateTime(), getHasEndDate(), getEndDateTime(), getMobileTraffic(), getLanguageTraffic(), getUtmCodes(), getEnabled(), getStatus(), getMinBid(), getMaxBid(), getCost(), getCtr(), getPixelUrl());
     }
 
     @Override
@@ -456,6 +466,7 @@ class Boost {
         sb.append(", maxBid='").append(maxBid).append('\'');
         sb.append(", cost='").append(cost).append('\'');
         sb.append(", ctr='").append(ctr).append('\'');
+        sb.append(", pixelUrl='").append(pixelUrl).append('\'');
         sb.append('}');
         return sb.toString();
     }
@@ -604,6 +615,11 @@ class Boost {
             return this;
         }
 
+        public APIRequestAddBuilder pixelUrl(String pixelUrl) {
+            this.pixelUrl = pixelUrl;
+            return this;
+        }
+
         public Boost build() {
             Boost boost = new Boost();
             boost.name = this.name;
@@ -624,6 +640,7 @@ class Boost {
             boost.languageTargeting = this.languageTargeting;
             boost.trackingCode = this.trackingCode;
             boost.trafficTypes = this.trafficTypes;
+            boost.pixelUrl = this.pixelUrl;
             return boost;
         }
     }
@@ -649,6 +666,7 @@ class Boost {
         private List<String> languageTraffic;
         private List<String> trafficTypes;
         private String utmCodes;
+        private String pixelUrl;
 
         private APIRequestUpdateBuilder() {
         }
@@ -757,6 +775,11 @@ class Boost {
             return this;
         }
 
+        public APIRequestUpdateBuilder pixelUrl(String pixelUrl) {
+            this.pixelUrl = pixelUrl;
+            return this;
+        }
+
         public Boost build() {
             Boost boost = new Boost();
             boost.id = this.id;
@@ -778,6 +801,7 @@ class Boost {
             boost.mobileTraffic = this.mobileTraffic;
             boost.languageTargeting = this.languageTraffic;
             boost.utmCodes = this.utmCodes;
+            boost.pixelUrl = this.pixelUrl;
             return boost;
         }
     }
