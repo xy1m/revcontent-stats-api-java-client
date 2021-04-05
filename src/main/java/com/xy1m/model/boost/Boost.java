@@ -41,6 +41,7 @@ class Boost {
     private String zipcodeTargeting;
     private List<String> zipcodeCodes;
     private List<String> deviceTargeting;
+    private List<String> osTargeting;
     private List<String> languageTargeting;
     private String trackingCode;
     // cpa
@@ -215,6 +216,14 @@ class Boost {
 
     public void setDeviceTargeting(List<String> deviceTargeting) {
         this.deviceTargeting = deviceTargeting;
+    }
+
+    public List<String> getOsTargeting() {
+        return osTargeting;
+    }
+
+    public void setOsTargeting(List<String> osTargeting) {
+        this.osTargeting = osTargeting;
     }
 
     public List<String> getLanguageTargeting() {
@@ -423,7 +432,7 @@ class Boost {
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId(), getName(), getBidAmount(), getBudget(), getPacing(), getOptimize(), getConversion(), getStartDate(), getEndDate(), getTargetType(), getTargetTargeting(), getTargetCodes(), getCountryTargeting(), getCountryCodes(), getRegionTargeting(), getRegionCodes(), getDeviceTargeting(), getLanguageTargeting(), getTrackingCode(), getPixels(), getDefaultBid(), getBudgetType(), getBudgetAmount(), getStartDateTime(), getHasEndDate(), getEndDateTime(), getMobileTraffic(), getLanguageTraffic(), getUtmCodes(), getEnabled(), getStatus(), getMinBid(), getMaxBid(), getCost(), getCtr(), getPixelUrl());
+        return Objects.hash(getId(), getName(), getBidAmount(), getBudget(), getPacing(), getOptimize(), getConversion(), getStartDate(), getEndDate(), getTargetType(), getTargetTargeting(), getTargetCodes(), getCountryTargeting(), getCountryCodes(), getRegionTargeting(), getRegionCodes(), getDeviceTargeting(), getOsTargeting(), getLanguageTargeting(), getTrackingCode(), getPixels(), getDefaultBid(), getBudgetType(), getBudgetAmount(), getStartDateTime(), getHasEndDate(), getEndDateTime(), getMobileTraffic(), getLanguageTraffic(), getUtmCodes(), getEnabled(), getStatus(), getMinBid(), getMaxBid(), getCost(), getCtr(), getPixelUrl());
     }
 
     @Override
@@ -448,6 +457,7 @@ class Boost {
         sb.append(", zipcodeTargeting='").append(zipcodeTargeting).append('\'');
         sb.append(", zipcodeCodes=").append(zipcodeCodes);
         sb.append(", deviceTargeting=").append(deviceTargeting);
+        sb.append(", osTargeting=").append(osTargeting);
         sb.append(", languageTargeting=").append(languageTargeting);
         sb.append(", trackingCode='").append(trackingCode).append('\'');
         sb.append(", pixels=").append(pixels);
@@ -505,6 +515,8 @@ class Boost {
         private List<String> regionCodes;
         // default all
         private List<String> deviceTargeting;
+        // default all
+        private List<String> osTargeting;
         // default all
         private List<String> languageTargeting;
         // default all
@@ -600,6 +612,11 @@ class Boost {
             return this;
         }
 
+        public APIRequestAddBuilder osTargeting(List<String> osTargeting) {
+            this.osTargeting = osTargeting;
+            return this;
+        }
+
         public APIRequestAddBuilder languageTargeting(List<String> languageTargeting) {
             this.languageTargeting = languageTargeting;
             return this;
@@ -637,6 +654,7 @@ class Boost {
             boost.zipcodeTargeting = this.zipcodeTargeting;
             boost.zipcodeCodes = this.zipcodeCodes;
             boost.deviceTargeting = this.deviceTargeting;
+            boost.osTargeting = this.osTargeting;
             boost.languageTargeting = this.languageTargeting;
             boost.trackingCode = this.trackingCode;
             boost.trafficTypes = this.trafficTypes;
@@ -662,6 +680,8 @@ class Boost {
         private List<String> countryCodes;
         private String regionTargeting;
         private List<String> regionCodes;
+        private List<String> deviceTargeting;
+        private List<String> osTargeting;
         private List<String> mobileTraffic;
         private List<String> languageTraffic;
         private List<String> trafficTypes;
@@ -750,6 +770,16 @@ class Boost {
             return this;
         }
 
+        public APIRequestUpdateBuilder deviceTargeting(List<String> deviceTargeting) {
+            this.deviceTargeting = deviceTargeting;
+            return this;
+        }
+
+        public APIRequestUpdateBuilder osTargeting(List<String> osTargeting) {
+            this.osTargeting = osTargeting;
+            return this;
+        }
+
         public APIRequestUpdateBuilder regionCodes(List<String> regionCodes) {
             this.regionCodes = regionCodes;
             return this;
@@ -798,6 +828,8 @@ class Boost {
             boost.countryCodes = this.countryCodes;
             boost.regionTargeting = this.regionTargeting;
             boost.regionCodes = this.regionCodes;
+            boost.deviceTargeting = this.deviceTargeting;
+            boost.osTargeting = this.osTargeting;
             boost.mobileTraffic = this.mobileTraffic;
             boost.languageTargeting = this.languageTraffic;
             boost.utmCodes = this.utmCodes;
