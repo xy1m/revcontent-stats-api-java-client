@@ -40,6 +40,8 @@ class Boost {
     private List<String> regionCodes;
     private String zipcodeTargeting;
     private List<String> zipcodeCodes;
+    private String dmaTargeting;
+    private List<String> dmaCodes;
     private List<String> deviceTargeting;
     private List<String> osTargeting;
     private List<String> languageTargeting;
@@ -208,6 +210,22 @@ class Boost {
 
     public void setZipcodeCodes(List<String> zipcodeCodes) {
         this.zipcodeCodes = zipcodeCodes;
+    }
+
+    public String getDmaTargeting() {
+        return dmaTargeting;
+    }
+
+    public void setDmaTargeting(String dmaTargeting) {
+        this.dmaTargeting = dmaTargeting;
+    }
+
+    public List<String> getDmaCodes() {
+        return dmaCodes;
+    }
+
+    public void setDmaCodes(List<String> dmaCodes) {
+        this.dmaCodes = dmaCodes;
     }
 
     public List<String> getDeviceTargeting() {
@@ -408,6 +426,10 @@ class Boost {
                 Objects.equals(getCountryCodes(), boost.getCountryCodes()) &&
                 Objects.equals(getRegionTargeting(), boost.getRegionTargeting()) &&
                 Objects.equals(getRegionCodes(), boost.getRegionCodes()) &&
+                Objects.equals(getZipcodeTargeting(), boost.getZipcodeTargeting()) &&
+                Objects.equals(getZipcodeCodes(), boost.getZipcodeCodes()) &&
+                Objects.equals(getDmaTargeting(), boost.getDmaTargeting()) &&
+                Objects.equals(getDmaCodes(), boost.getDmaCodes()) &&
                 Objects.equals(getDeviceTargeting(), boost.getDeviceTargeting()) &&
                 Objects.equals(getLanguageTargeting(), boost.getLanguageTargeting()) &&
                 Objects.equals(getTrackingCode(), boost.getTrackingCode()) &&
@@ -456,6 +478,8 @@ class Boost {
         sb.append(", regionCodes=").append(regionCodes);
         sb.append(", zipcodeTargeting='").append(zipcodeTargeting).append('\'');
         sb.append(", zipcodeCodes=").append(zipcodeCodes);
+        sb.append(", dmaTargeting='").append(dmaTargeting).append('\'');
+        sb.append(", dmaCodes=").append(dmaCodes);
         sb.append(", deviceTargeting=").append(deviceTargeting);
         sb.append(", osTargeting=").append(osTargeting);
         sb.append(", languageTargeting=").append(languageTargeting);
@@ -515,18 +539,17 @@ class Boost {
         private List<String> regionCodes;
         // default all
         private List<String> deviceTargeting;
+        private String zipcodeTargeting;
+        private List<String> zipcodeCodes;
+        // default all
+        private String dmaTargeting;
+        private List<String> dmaCodes;
         // default all
         private List<String> osTargeting;
         // default all
         private List<String> languageTargeting;
         // default all
         private List<String> browser_targeting;
-        // default all
-        private String dmaTargeting;
-        private List<String> dmaCodes;
-        // default all
-        private String zipcodeTargeting;
-        private List<String> zipcodeCodes;
         private String trackingCode;
         private String pixelUrl;
 
@@ -607,6 +630,16 @@ class Boost {
             return this;
         }
 
+        public APIRequestAddBuilder dmaTargeting(String dmaTargeting) {
+            this.dmaTargeting = dmaTargeting;
+            return this;
+        }
+
+        public APIRequestAddBuilder dmaCodes(List<String> dmaCodes) {
+            this.dmaCodes = dmaCodes;
+            return this;
+        }
+
         public APIRequestAddBuilder deviceTargeting(List<String> deviceTargeting) {
             this.deviceTargeting = deviceTargeting;
             return this;
@@ -653,6 +686,8 @@ class Boost {
             boost.regionCodes = this.regionCodes;
             boost.zipcodeTargeting = this.zipcodeTargeting;
             boost.zipcodeCodes = this.zipcodeCodes;
+            boost.dmaTargeting = this.dmaTargeting;
+            boost.dmaCodes = this.dmaCodes;
             boost.deviceTargeting = this.deviceTargeting;
             boost.osTargeting = this.osTargeting;
             boost.languageTargeting = this.languageTargeting;
